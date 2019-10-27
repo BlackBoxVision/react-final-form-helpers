@@ -1,0 +1,3 @@
+node_modules
+packages/**/pkg
+packages/**/node_modules
