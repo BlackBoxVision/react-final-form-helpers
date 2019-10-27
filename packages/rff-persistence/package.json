@@ -1,7 +1,7 @@
 {
-  "name": "@blackbox-vision/rff-persist",
+  "name": "@blackbox-vision/rff-persistence",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "RFF Persistence Layer for LocalStorage/SessionStorage",
   "keywords": [
     "localforage",
     "persist",

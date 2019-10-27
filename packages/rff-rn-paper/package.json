@@ -1,13 +1,14 @@
 {
-  "name": "@blackbox-vision/rff-wizard",
+  "name": "@blackbox-vision/rff-rn-paper",
   "version": "0.0.0",
-  "description": "RFF Wizard Form builder components",
+  "description": "RFF UI Wrapper for React Native Paper",
   "keywords": [
-    "wizard",
+    "react-native",
     "final-form",
-    "react-final-form"
+    "react-final-form",
+    "react-native-paper"
   ],
-  "author": "jonatan.salas <jonatan.salas@blackbox-vision.tech>",
+  "author": "jonatansalas <jonatansalas@live.com.ar>",
   "homepage": "https://github.com/BlackBoxVision/react-final-form-helpers#readme",
   "license": "MIT",
   "@pika/pack": {
@@ -82,8 +83,11 @@
     "@pika/plugin-build-web": "^0.7.1",
     "@pika/plugin-standard-pkg": "^0.7.1",
     "@types/react": "^16.9.11",
+    "@types/react-native": "^0.60.21",
     "final-form": "^4.18.5",
     "react": "^16.11.0",
-    "react-final-form": "^6.3.0"
+    "react-final-form": "^6.3.0",
+    "react-native": "^0.61.2",
+    "react-native-paper": "^3.0.0"
   }
 }

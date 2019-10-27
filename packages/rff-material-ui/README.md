@@ -1,11 +1,17 @@
-# `rff-material-ui`
+# RFF Material UI
 
-> TODO: description
+Material UI Wrapper for React Final Form
 
-## Usage
+## Installation
 
+### YARN
+
+```javascript
+yarn add @blackbox-vision/rff-material-ui
 ```
-const rffMaterialUi = require('rff-material-ui');
 
-// TODO: DEMONSTRATE API
+### NPM
+
+```javascript
+npm install --save @blackbox-vision/rff-material-ui
 ```

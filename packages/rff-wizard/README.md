@@ -1,11 +1,17 @@
-# `rff-wizard`
+# RFF Wizard
 
-> TODO: description
+React Final Form Wizard Pattern
 
-## Usage
+## Installation
 
+### YARN
+
+```javascript
+yarn add @blackbox-vision/rff-wizard
 ```
-const rffWizard = require('rff-wizard');
 
-// TODO: DEMONSTRATE API
+### NPM
+
+```javascript
+npm install --save @blackbox-vision/rff-wizard
 ```
