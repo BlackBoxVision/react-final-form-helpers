@@ -12,50 +12,10 @@
   "license": "MIT",
   "@pika/pack": {
     "pipeline": [
-      [
-        "@pika/plugin-standard-pkg",
-        {
-          "exclude": [
-            "**/*.md",
-            "**/*.tests.*",
-            "**/*.stories.*",
-            "**/__snapshots/*"
-          ]
-        }
-      ],
-      [
-        "@pika/plugin-build-node",
-        {
-          "exclude": [
-            "**/*.md",
-            "**/*.tests.*",
-            "**/*.stories.*",
-            "**/__snapshots/*"
-          ]
-        }
-      ],
-      [
-        "@pika/plugin-build-web",
-        {
-          "exclude": [
-            "**/*.md",
-            "**/*.tests.*",
-            "**/*.stories.*",
-            "**/__snapshots/*"
-          ]
-        }
-      ],
-      [
-        "@pika/plugin-build-types",
-        {
-          "exclude": [
-            "**/*.md",
-            "**/*.tests.*",
-            "**/*.stories.*",
-            "**/__snapshots/*"
-          ]
-        }
-      ]
+      ["@pika/plugin-standard-pkg"],
+      ["@pika/plugin-build-node"],
+      ["@pika/plugin-build-web"],
+      ["@pika/plugin-build-types"]
     ]
   },
   "repository": {
@@ -84,6 +44,13 @@
     "@types/react": "^16.9.11",
     "final-form": "^4.18.5",
     "react": "^16.11.0",
+    "react-final-form": "^6.3.0",
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "final-form": "^4.18.5",
     "react-final-form": "^6.3.0"
   }
 }
