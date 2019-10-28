@@ -1,0 +1,65 @@
+{
+  "name": "@blackbox-vision/rff-fields",
+  "version": "0.0.0",
+  "description": "RFF Custom Field components",
+  "keywords": [
+    "fields",
+    "final-form",
+    "react-final-form"
+  ],
+  "author": "jonatan.salas <jonatan.salas@blackbox-vision.tech>",
+  "homepage": "https://github.com/BlackBoxVision/react-final-form-helpers#readme",
+  "license": "MIT",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackBoxVision/react-final-form-helpers.git"
+  },
+  "scripts": {
+    "clean": "rimraf pkg",
+    "publish": "pack publish",
+    "build": "npm run clean && pack build",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/BlackBoxVision/react-final-form-helpers/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@pika/plugin-build-node": "^0.7.1",
+    "@pika/plugin-build-types": "^0.7.1",
+    "@pika/plugin-build-web": "^0.7.1",
+    "@pika/plugin-standard-pkg": "^0.7.1",
+    "@types/react": "^16.9.11",
+    "final-form": "^4.18.5",
+    "react": "^16.11.0",
+    "react-final-form": "^6.3.0",
+    "react-final-form-listeners": "^1.0.2",
+    "rimraf": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "final-form": "^4.18.5",
+    "react-final-form": "^6.3.0"
+  }
+}

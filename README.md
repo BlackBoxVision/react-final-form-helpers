@@ -4,6 +4,12 @@ This repository contains a set of libraries that help you build React Final Form
 
 ## Libraries
 
+### Form Primitives Layer
+
+A set of libraries with custom Fields that cover some specific use-cases:
+
+- `@blackbox-vision/rff-fields`: Custom fields patterns for React Final Form
+
 ### UI Wrapper Layer
 
 A set of libraries of UI components wrappers for faster rff integration:
