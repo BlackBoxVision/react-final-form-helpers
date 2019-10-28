@@ -1,6 +1,6 @@
 # React Final Form Helpers
 
-This repository contains a set of libraries that help you build React Final Forms more easier and faster.
+This repository contains a set of libraries that help you build React Final Forms in a more easier and faster way.
 
 ## Libraries
 
