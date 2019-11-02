@@ -4,7 +4,7 @@ This repository contains a set of libraries that help you build React Final Form
 
 ## Libraries
 
-### Form Primitives Layer
+### Form Primitives Layer
 
 A set of libraries with custom Fields that cover some specific use-cases:
 
