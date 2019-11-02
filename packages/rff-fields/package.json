@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/rff-fields",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "RFF Custom Field components",
   "keywords": [
     "fields",
