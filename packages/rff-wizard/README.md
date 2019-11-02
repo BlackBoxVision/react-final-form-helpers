@@ -1,4 +1,4 @@
-# RFF Wizard
+# RFF Wizard [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-wizard.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-wizard)
 
 React Final Form Wizard Pattern
 
