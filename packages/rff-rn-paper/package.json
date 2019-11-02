@@ -26,8 +26,7 @@
   "scripts": {
     "clean": "rimraf pkg",
     "publish": "pack publish",
-    "build": "npm run clean && pack build",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npm run clean && pack build"
   },
   "bugs": {
     "url": "https://github.com/BlackBoxVision/react-final-form-helpers/issues"
