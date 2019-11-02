@@ -29,6 +29,20 @@ A set of libraries that simplify build form variants:
 
 - `@blackbox-vision/rff-wizard`: Integration with RFF and Wizard Forms
 
+## TODO
+
+This set of libraries is still under construction. We've to do the following:
+
+- [ ] Add docs website with docz
+- [ ] Add support for contributing docs
+- [ ] Add support for more UI libraries
+- [ ] Add support for PR/Issue templates
+- [ ] Add support for generating changelog
+- [ ] Add tests cases for all the libraries
+- [ ] Add library usage example with codesandbox
+- [ ] Add support for probot apps to automate some workflows
+- [ ] Add github actions for automatically run some tasks over repo on push or PR
+
 ## Issues
 
 Please, open an [issue](https://github.com/BlackBoxVision/styled-animation/issues) following one of the issues templates. We will do our best to fix them.
