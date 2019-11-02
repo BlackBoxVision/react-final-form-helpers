@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/rff-persistence",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "RFF Persistence Layer for LocalStorage/SessionStorage",
   "keywords": [
     "localforage",
@@ -12,10 +12,18 @@
   "license": "MIT",
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-standard-pkg"],
-      ["@pika/plugin-build-node"],
-      ["@pika/plugin-build-web"],
-      ["@pika/plugin-build-types"]
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
     ]
   },
   "repository": {
