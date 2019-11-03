@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View as RNView } from 'react-native';
 import {
   Text as RNText,
   Switch as RNSwitch,
@@ -25,7 +25,7 @@ export interface SwitchProps {
 }
 
 export const Switch: React.FunctionComponent<SwitchProps> = ({
-  input: { name, onChange, value, ...InputProps },
+  input: { onChange, value },
   meta,
   label,
   style,
@@ -42,18 +42,17 @@ export const Switch: React.FunctionComponent<SwitchProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
-      <View {...InnerContainerProps}>
+    <RNView {...ContainerProps}>
+      <RNView {...InnerContainerProps}>
         {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
         <RNSwitch
-          {...InputProps}
           {...SwitchProps}
           style={style}
-          onPress={() => onChange(!value)}
-          status={value ? 'checked' : 'unchecked'}
+          value={value}
+          onValueChange={() => onChange(!value)}
         />
         {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
-      </View>
+      </RNView>
       <RNHelperText
         {...HelperTextProps}
         type={helperTextType}
@@ -61,7 +60,7 @@ export const Switch: React.FunctionComponent<SwitchProps> = ({
       >
         {helperText}
       </RNHelperText>
-    </View>
+    </RNView>
   );
 };
 

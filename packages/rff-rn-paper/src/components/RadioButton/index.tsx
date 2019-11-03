@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View as RNView } from 'react-native';
 import {
   Text as RNText,
   RadioButton as RNRadioButton,
@@ -44,8 +44,8 @@ export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
-      <View {...InnerContainerProps}>
+    <RNView {...ContainerProps}>
+      <RNView {...InnerContainerProps}>
         {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
         <RNRadioButton
           {...InputProps}
@@ -56,7 +56,7 @@ export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
           status={inputValue ? 'checked' : 'unchecked'}
         />
         {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
-      </View>
+      </RNView>
       <RNHelperText
         {...HelperTextProps}
         type={helperTextType}
@@ -64,7 +64,7 @@ export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
       >
         {helperText}
       </RNHelperText>
-    </View>
+    </RNView>
   );
 };
 

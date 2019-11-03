@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View as RNView } from 'react-native';
 import {
   Text as RNText,
   Checkbox as RNCheckbox,
@@ -42,11 +42,9 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
-      <View {...InnerContainerProps}>
-        {labelPosition === 'left' && (
-          <RNText {...LabelProps}>{label}</RNText>
-        )}
+    <RNView {...ContainerProps}>
+      <RNView {...InnerContainerProps}>
+        {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
         <RNCheckbox
           {...InputProps}
           {...CheckboxProps}
@@ -54,10 +52,8 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
           onPress={() => onChange(!value)}
           status={value ? 'checked' : 'unchecked'}
         />
-        {labelPosition === 'right' && (
-          <RNText {...LabelProps}>{label}</RNText>
-        )}
-      </View>
+        {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
+      </RNView>
       <RNHelperText
         {...HelperTextProps}
         type={helperTextType}
@@ -65,7 +61,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
       >
         {helperText}
       </RNHelperText>
-    </View>
+    </RNView>
   );
 };
 

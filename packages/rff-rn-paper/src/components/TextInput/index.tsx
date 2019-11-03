@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View as RNView } from 'react-native';
 import {
   TextInput as RNTextInput,
   HelperText as RNHelperText,
@@ -41,7 +41,7 @@ export const TextInput: React.FunctionComponent<TextInputProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
+    <RNView {...ContainerProps}>
       <RNTextInput
         {...InputProps}
         {...TextInputProps}
@@ -61,7 +61,7 @@ export const TextInput: React.FunctionComponent<TextInputProps> = ({
       >
         {helperText}
       </RNHelperText>
-    </View>
+    </RNView>
   );
 };
 
