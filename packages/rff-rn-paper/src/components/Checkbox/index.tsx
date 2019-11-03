@@ -16,7 +16,7 @@ export interface CheckboxProps {
   label?: string;
   disabled?: boolean;
   ContainerProps?: any;
-  LabelTextProps?: any;
+  LabelProps?: any;
   HelperTextProps?: any;
   uncheckedColor?: string;
   InnerContainerProps?: any;
@@ -33,7 +33,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
   getHelperText,
   ContainerProps,
   InnerContainerProps,
-  LabelTextProps,
+  LabelProps,
   HelperTextProps,
   ...CheckboxProps
 }) => {
@@ -45,7 +45,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
     <View {...ContainerProps}>
       <View {...InnerContainerProps}>
         {labelPosition === 'left' && (
-          <RNText {...LabelTextProps}>{label}</RNText>
+          <RNText {...LabelProps}>{label}</RNText>
         )}
         <RNCheckbox
           {...InputProps}
@@ -55,7 +55,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
           status={value ? 'checked' : 'unchecked'}
         />
         {labelPosition === 'right' && (
-          <RNText {...LabelTextProps}>{label}</RNText>
+          <RNText {...LabelProps}>{label}</RNText>
         )}
       </View>
       <RNHelperText
@@ -75,7 +75,7 @@ Checkbox.defaultProps = {
   style: {},
   labelPosition: 'right',
   InnerContainerProps: {},
-  LabelTextProps: {},
+  LabelProps: {},
   ContainerProps: {},
   HelperTextProps: {
     padding: 'normal',

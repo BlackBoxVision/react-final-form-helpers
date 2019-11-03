@@ -16,7 +16,7 @@ export interface SwitchProps {
   label?: string;
   disabled?: boolean;
   ContainerProps?: any;
-  LabelTextProps?: any;
+  LabelProps?: any;
   HelperTextProps?: any;
   uncheckedColor?: string;
   InnerContainerProps?: any;
@@ -33,7 +33,7 @@ export const Switch: React.FunctionComponent<SwitchProps> = ({
   getHelperText,
   ContainerProps,
   InnerContainerProps,
-  LabelTextProps,
+  LabelProps,
   HelperTextProps,
   ...SwitchProps
 }) => {
@@ -44,9 +44,7 @@ export const Switch: React.FunctionComponent<SwitchProps> = ({
   return (
     <View {...ContainerProps}>
       <View {...InnerContainerProps}>
-        {labelPosition === 'left' && (
-          <RNText {...LabelTextProps}>{label}</RNText>
-        )}
+        {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
         <RNSwitch
           {...InputProps}
           {...SwitchProps}
@@ -54,9 +52,7 @@ export const Switch: React.FunctionComponent<SwitchProps> = ({
           onPress={() => onChange(!value)}
           status={value ? 'checked' : 'unchecked'}
         />
-        {labelPosition === 'right' && (
-          <RNText {...LabelTextProps}>{label}</RNText>
-        )}
+        {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
       </View>
       <RNHelperText
         {...HelperTextProps}
@@ -75,7 +71,7 @@ Switch.defaultProps = {
   style: {},
   labelPosition: 'left',
   InnerContainerProps: {},
-  LabelTextProps: {},
+  LabelProps: {},
   ContainerProps: {},
   HelperTextProps: {
     padding: 'normal',
