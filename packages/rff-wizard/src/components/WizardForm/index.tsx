@@ -9,6 +9,8 @@ export interface WizardFormRenderProps {
   activeStep: number;
   /** Total steps in the wizard form */
   totalSteps: number;
+  /** Flag to indicate that we're on the last page */
+  isLastPage: boolean;
   /** Flag to indicate that no field has been modified */
   pristine: boolean;
   /** Flag to indicate that the form is runnig submission */
@@ -107,6 +109,7 @@ export const WizardForm: React.FunctionComponent<WizardFormProps> = ({
               values,
               pristine,
               submitting,
+              isLastPage,
               hasSubmitErrors,
               activeStep: state.page,
               totalSteps: React.Children.count(children),
@@ -116,6 +119,7 @@ export const WizardForm: React.FunctionComponent<WizardFormProps> = ({
               values,
               pristine,
               submitting,
+              isLastPage,
               hasSubmitErrors,
               activeStep: state.page,
               totalSteps: React.Children.count(children),
@@ -128,6 +132,7 @@ export const WizardForm: React.FunctionComponent<WizardFormProps> = ({
               onNext,
               pristine,
               submitting,
+              isLastPage,
               hasSubmitErrors,
               activeStep: state.page,
               totalSteps: React.Children.count(children),
