@@ -32,8 +32,8 @@
   },
   "scripts": {
     "clean": "rimraf pkg",
-    "publish": "pack publish",
-    "build": "npm run clean && pack build"
+    "publish": "pika publish",
+    "build": "npm run clean && pika build"
   },
   "bugs": {
     "url": "https://github.com/BlackBoxVision/react-final-form-helpers/issues"
@@ -44,6 +44,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
+    "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.7.1",
     "@pika/plugin-build-types": "^0.7.1",
     "@pika/plugin-build-web": "^0.7.1",
