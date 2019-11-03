@@ -11,7 +11,6 @@ import { useHasError } from '../../hooks/useHasError';
 export interface CheckboxProps {
   input?: any;
   meta?: any;
-  style?: any;
   color?: string;
   label?: string;
   disabled?: boolean;
@@ -25,10 +24,9 @@ export interface CheckboxProps {
 }
 
 export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
-  input: { name, onChange, value, ...InputProps },
+  input: { onChange, value },
   meta,
   label,
-  style,
   labelPosition,
   getHelperText,
   ContainerProps,
@@ -46,9 +44,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
       <RNView {...InnerContainerProps}>
         {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
         <RNCheckbox
-          {...InputProps}
           {...CheckboxProps}
-          style={style}
           onPress={() => onChange(!value)}
           status={value ? 'checked' : 'unchecked'}
         />

@@ -11,7 +11,6 @@ import { useHasError } from '../../hooks/useHasError';
 export interface RadioButtonProps {
   input?: any;
   meta?: any;
-  style?: any;
   color?: string;
   label?: string;
   value?: string;
@@ -26,10 +25,9 @@ export interface RadioButtonProps {
 }
 
 export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
-  input: { name, onChange, value: inputValue, ...InputProps },
+  input: { onChange, value: inputValue },
   meta,
   label,
-  style,
   value,
   labelPosition,
   getHelperText,
@@ -48,9 +46,7 @@ export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
       <RNView {...InnerContainerProps}>
         {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
         <RNRadioButton
-          {...InputProps}
           {...RadioButtonProps}
-          style={style}
           value={value}
           onPress={() => onChange(value)}
           status={inputValue ? 'checked' : 'unchecked'}
