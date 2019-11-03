@@ -3,7 +3,7 @@ import { useFormState } from 'react-final-form';
 import { useAsync } from 'react-use';
 
 export interface DependentFieldProps {
-  onChange: (values?: any) => Promise<void>;
+  onChange: any;
   children?: any;
 }
 
