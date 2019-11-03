@@ -8,15 +8,22 @@ export interface StorageConfig {
   ttl: number;
 }
 
+const defaultOptions = {
+  isSessionStorage: false,
+  ttl: 5,
+};
+
 export const Storage = {
   setItem: (
     key: string,
     values: Object,
-    { isSessionStorage, ttl }: StorageConfig,
+    { isSessionStorage, ttl }: StorageConfig = defaultOptions,
   ): void =>
     isSessionStorage
       ? sscache.set(key, values, ttl)
       : lscache.set(key, values, ttl),
-  getItem: (key: string, { isSessionStorage }: StorageConfig): Object =>
-    isSessionStorage ? sscache.get(key) : lscache.get(key),
+  getItem: (
+    key: string,
+    { isSessionStorage }: StorageConfig = defaultOptions,
+  ): Object => (isSessionStorage ? sscache.get(key) : lscache.get(key)),
 };
