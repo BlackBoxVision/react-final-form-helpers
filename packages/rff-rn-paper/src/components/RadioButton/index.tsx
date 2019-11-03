@@ -67,7 +67,6 @@ export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
 RadioButton.displayName = 'RadioButton';
 RadioButton.defaultProps = {
   getHelperText: str => str,
-  style: {},
   labelPosition: 'right',
   InnerContainerProps: {},
   LabelProps: {},

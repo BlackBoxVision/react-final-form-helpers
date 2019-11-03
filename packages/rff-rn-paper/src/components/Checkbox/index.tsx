@@ -64,7 +64,6 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
 Checkbox.displayName = 'Checkbox';
 Checkbox.defaultProps = {
   getHelperText: str => str,
-  style: {},
   labelPosition: 'right',
   InnerContainerProps: {},
   LabelProps: {},

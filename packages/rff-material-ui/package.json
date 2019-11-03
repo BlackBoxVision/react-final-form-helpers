@@ -12,10 +12,18 @@
   "license": "MIT",
   "@pika/pack": {
     "pipeline": [
-      ["@pika/plugin-standard-pkg"],
-      ["@pika/plugin-build-node"],
-      ["@pika/plugin-build-web"],
-      ["@pika/plugin-build-types"]
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
     ]
   },
   "repository": {
@@ -24,8 +32,8 @@
   },
   "scripts": {
     "clean": "rimraf pkg",
-    "publish": "pack publish",
-    "build": "npm run clean && pack build"
+    "publish": "pika publish",
+    "build": "npm run clean && pika build"
   },
   "bugs": {
     "url": "https://github.com/BlackBoxVision/react-final-form-helpers/issues"
@@ -45,5 +53,8 @@
     "final-form": "^4.18.5",
     "react": "^16.11.0",
     "react-final-form": "^6.3.0"
+  },
+  "dependencies": {
+    "@pika/pack": "^0.5.0"
   }
 }
