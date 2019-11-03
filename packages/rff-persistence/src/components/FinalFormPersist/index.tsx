@@ -9,16 +9,18 @@ export interface FinalFormPersistProps {
   isSessionStorage?: boolean;
   /** Name of the form to save to the storage */
   formName: string;
+  /** Flag to set cache duration */
+  ttl: number;
 }
 
 export const FinalFormPersist: React.FunctionComponent<
   FinalFormPersistProps
-> = ({ isSessionStorage, formName }) => {
+> = ({ isSessionStorage, formName, ttl }) => {
   const { values } = useFormState({ subscription: { values: true } });
 
   useEffect(() => {
-    Storage.setItem(formName, values, { isSessionStorage });
-  }, [formName, isSessionStorage, values]);
+    Storage.setItem(formName, values, { ttl, isSessionStorage });
+  }, [formName, values, ttl, isSessionStorage]);
 
   return null;
 };

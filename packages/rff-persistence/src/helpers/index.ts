@@ -1,25 +1,22 @@
-import localForage from 'localforage';
-import sessionStorageWrapper from 'localforage-sessionstoragewrapper';
+import lscache from 'lscache';
+import sscache from 'session-storage-cache';
 
 export interface StorageConfig {
+  /** Flag to determine if use session-storage as persistence layer */
   isSessionStorage?: boolean;
+  /** Flag to set cache duration */
+  ttl: number;
 }
 
 export const Storage = {
-  setItem: async (
+  setItem: (
     key: string,
     values: Object,
-    { isSessionStorage }: StorageConfig,
-  ): Promise<void> => {
-    if (isSessionStorage) {
-      localForage
-        .defineDriver(sessionStorageWrapper)
-        .then(() => localForage.setDriver(sessionStorageWrapper._driver));
-    }
-
-    await localForage.setItem(key, values);
-  },
-  getItem: async (key: string): Promise<Object> => {
-    return await localForage.getItem(key);
-  },
+    { isSessionStorage, ttl }: StorageConfig,
+  ): void =>
+    isSessionStorage
+      ? sscache.set(key, values, ttl)
+      : lscache.set(key, values, ttl),
+  getItem: (key: string, { isSessionStorage }: StorageConfig): Object =>
+    isSessionStorage ? sscache.get(key) : lscache.get(key),
 };

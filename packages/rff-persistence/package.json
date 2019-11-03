@@ -58,8 +58,8 @@
     "rimraf": "^3.0.0"
   },
   "dependencies": {
-    "localforage": "^1.7.3",
-    "localforage-sessionstoragewrapper": "^1.3.0"
+    "lscache": "^1.3.0",
+    "session-storage-cache": "^1.0.4"
   },
   "peerDependencies": {
     "react": "^16.8.0",
