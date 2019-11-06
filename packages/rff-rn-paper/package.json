@@ -31,7 +31,8 @@
   "scripts": {
     "clean": "rimraf pkg",
     "publish": "pika publish",
-    "build": "npm run clean && pika build"
+    "build": "npm run clean && pika build",
+    "version": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/BlackBoxVision/react-final-form-helpers/issues"
