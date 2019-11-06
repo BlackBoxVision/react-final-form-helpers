@@ -1,4 +1,4 @@
-# RFF Material UI
+# RFF React Native Paper UI [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-rn-paper.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-rn-paper)
 
 React Native Paper UI Wrapper for React Final Form
 
