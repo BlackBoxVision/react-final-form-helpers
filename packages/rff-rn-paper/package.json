@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/rff-rn-paper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RFF UI Wrapper for React Native Paper",
   "keywords": [
     "react-native",
