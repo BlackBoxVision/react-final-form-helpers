@@ -48,13 +48,15 @@ export const Select: React.FunctionComponent<SelectProps> = ({
             <RNPicker.Item label={label} value={value} />
           ))}
       </RNPicker>
-      <RNHelperText
-        {...HelperTextProps}
-        type={helperTextType}
-        visible={!!helperText}
-      >
-        {helperText}
-      </RNHelperText>
+      {!!helperText && (
+        <RNHelperText
+          {...HelperTextProps}
+          type={helperTextType}
+          visible={!!helperText}
+        >
+          {helperText}
+        </RNHelperText>
+      )}
     </RNView>
   );
 };

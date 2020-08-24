@@ -54,13 +54,15 @@ export const TextInput: React.FunctionComponent<TextInputProps> = ({
         onFocus={onFocus}
         onChangeText={onChange}
       />
-      <RNHelperText
-        {...HelperTextProps}
-        type={helperTextType}
-        visible={!!helperText}
-      >
-        {helperText}
-      </RNHelperText>
+      {!!helperText && (
+        <RNHelperText
+          {...HelperTextProps}
+          type={helperTextType}
+          visible={!!helperText}
+        >
+          {helperText}
+        </RNHelperText>
+      )}
     </RNView>
   );
 };

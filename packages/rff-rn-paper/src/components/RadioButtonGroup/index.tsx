@@ -62,13 +62,15 @@ export const RadioButtonGroup: React.FunctionComponent<
             </RNView>
           ))}
       </RNRadioButton.Group>
-      <RNHelperText
-        {...HelperTextProps}
-        type={helperTextType}
-        visible={!!helperText}
-      >
-        {helperText}
-      </RNHelperText>
+      {!!helperText && (
+        <RNHelperText
+          {...HelperTextProps}
+          type={helperTextType}
+          visible={!!helperText}
+        >
+          {helperText}
+        </RNHelperText>
+      )}
     </RNView>
   );
 };

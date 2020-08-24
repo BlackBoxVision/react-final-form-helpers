@@ -50,13 +50,15 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
         />
         {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
       </RNView>
-      <RNHelperText
-        {...HelperTextProps}
-        type={helperTextType}
-        visible={!!helperText}
-      >
-        {helperText}
-      </RNHelperText>
+      {!!helperText && (
+        <RNHelperText
+          {...HelperTextProps}
+          type={helperTextType}
+          visible={!!helperText}
+        >
+          {helperText}
+        </RNHelperText>
+      )}
     </RNView>
   );
 };
