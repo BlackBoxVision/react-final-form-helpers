@@ -30,12 +30,12 @@ export interface WizardFormRenderProps extends FormRenderProps {
 export interface WizardFormProps extends FormProps {
   /** Default wizard step */
   initialStep: number;
-  /** Function used to render a title component */
-  render: (props: WizardFormRenderProps) => React.ReactNode;
+  /** Layout component */
+  Layout: React.FC<WizardFormRenderProps>;
 }
 
 export const WizardForm: React.FC<WizardFormProps> = ({
-  render,
+  Layout,
   children,
   onSubmit,
   initialStep,
@@ -83,6 +83,14 @@ export const WizardForm: React.FC<WizardFormProps> = ({
     [isLastPage, onSubmit, onNext],
   );
 
+  const layoutProps = {
+    onBack,
+    onNext,
+    isLastPage,
+    activeStep,
+    totalSteps,
+  };
+
   return (
     <Form
       {...formProps}
@@ -90,17 +98,11 @@ export const WizardForm: React.FC<WizardFormProps> = ({
       initialValues={values}
       onSubmit={handleSubmit}
     >
-      {formRenderProps =>
-        render &&
-        render({
-          ...formRenderProps,
-          onBack,
-          onNext,
-          isLastPage,
-          activeStep,
-          totalSteps,
-        })
-      }
+      {renderProps => (
+        <Layout {...renderProps} {...layoutProps}>
+          {activePage}
+        </Layout>
+      )}
     </Form>
   );
 };

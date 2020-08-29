@@ -39,6 +39,39 @@ npm install --save @blackbox-vision/rff-wizard
 
 ## Example Usages
 
+After reading and performing the previous steps, you should be able to import the library and use it like in this example:
+
+```javascript
+import React from 'react';
+import { Form } from 'react-final-form';
+import { FinalFormPersist } from '@blackbox-vision/rff-persistence';
+
+const MyForm = props => {
+  const initialValues = Storage.getItem('example', { isSessionStorage: false });
+
+  return (
+    <WizardForm
+      initialStep={0}
+      onSubmit={values => alert(values)}
+      render={({ handleSubmit }) => (
+        <>
+          <form onSubmit={handleSubmit}>{/** your form code **/}</form>
+          <FinalFormPersist
+            isSessionStorage={false}
+            formName="example"
+            ttl={250000}
+          />
+        </>
+      )}
+    />
+  );
+};
+
+MyForm.displayName = 'MyForm';
+
+export default MyForm;
+```
+
 ## Component APIs
 
 ## Issues
