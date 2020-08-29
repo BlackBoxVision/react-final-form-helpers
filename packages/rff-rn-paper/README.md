@@ -1,4 +1,4 @@
-# RFF React Native Paper UI [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-rn-paper.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-rn-paper)
+# RFF React Native Paper UI [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-rn-paper.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-rn-paper) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 React Native Paper UI Wrapper for React Final Form
 

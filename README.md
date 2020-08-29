@@ -1,4 +1,4 @@
-# React Final Form Helpers
+# React Final Form Helpers [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 This repository contains a set of libraries that help you build React Final Forms in a more easier and faster way.
 

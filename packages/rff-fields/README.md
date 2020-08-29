@@ -1,4 +1,4 @@
-# RFF Fields [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-fields.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-fields)
+# RFF Fields [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-fields.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-fields) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 React Final Form Custom Fieds
 
