@@ -32,13 +32,13 @@ export interface WizardFormProps extends FormProps {
   /** Default wizard step */
   initialStep: number;
   /** Layout component */
-  FormLayout: React.FC<FormLayoutProps>;
+  layout: React.FC<FormLayoutProps>;
 }
 
 export const WizardForm: React.FC<WizardFormProps> = ({
+  layout: Layout,
   children,
   onSubmit,
-  FormLayout,
   initialStep,
   initialValues,
   ...formProps
@@ -100,9 +100,9 @@ export const WizardForm: React.FC<WizardFormProps> = ({
       onSubmit={handleSubmit}
     >
       {renderProps => (
-        <FormLayout {...renderProps} {...layoutProps}>
+        <Layout {...renderProps} {...layoutProps}>
           {activePage}
-        </FormLayout>
+        </Layout>
       )}
     </Form>
   );
