@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useCallback, ReactElement } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Form, FormProps, FormRenderProps } from 'react-final-form';
 import { SubmissionErrors } from 'final-form';
 
-export interface WizardFormRenderProps extends FormRenderProps {
+export interface FormLayoutProps extends FormRenderProps {
+  children: React.ReactNode;
   /** Current active step in the wizard form */
   activeStep: number;
   /** Total steps in the wizard form */
@@ -31,13 +32,13 @@ export interface WizardFormProps extends FormProps {
   /** Default wizard step */
   initialStep: number;
   /** Layout component */
-  Layout: React.FC<WizardFormRenderProps>;
+  FormLayout: React.FC<FormLayoutProps>;
 }
 
 export const WizardForm: React.FC<WizardFormProps> = ({
-  Layout,
   children,
   onSubmit,
+  FormLayout,
   initialStep,
   initialValues,
   ...formProps
@@ -47,8 +48,8 @@ export const WizardForm: React.FC<WizardFormProps> = ({
 
   const totalSteps = useMemo(() => React.Children.count(children), [children]);
 
-  const activePage: ReactElement = useMemo(
-    () => React.Children.toArray(children)[activeStep] as ReactElement,
+  const activePage: React.ReactElement = useMemo(
+    () => React.Children.toArray(children)[activeStep] as React.ReactElement,
     [activeStep, children],
   );
 
@@ -99,9 +100,9 @@ export const WizardForm: React.FC<WizardFormProps> = ({
       onSubmit={handleSubmit}
     >
       {renderProps => (
-        <Layout {...renderProps} {...layoutProps}>
+        <FormLayout {...renderProps} {...layoutProps}>
           {activePage}
-        </Layout>
+        </FormLayout>
       )}
     </Form>
   );
