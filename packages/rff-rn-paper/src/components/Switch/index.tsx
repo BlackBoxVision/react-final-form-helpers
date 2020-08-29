@@ -1,14 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
-import {
-  Text as PaperText,
-  Switch as PaperSwitch,
-  HelperText as PaperHelperText,
-} from 'react-native-paper';
+import { Text as PaperText, Switch as PaperSwitch } from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-import { BaseInputProps } from 'components/TextInput';
+import { BaseInputProps } from '../TextInput';
+import { Container } from '../Container';
 
 type PaperSwitchProps = React.ComponentProps<typeof PaperSwitch>;
 
@@ -37,11 +34,18 @@ export const Switch: React.FC<SwitchProps> = ({
   ...SwitchProps
 }) => {
   const error = useHasError(meta);
-  const helperTextType = error ? 'error' : 'info';
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
+    <Container
+      {...ContainerProps}
+      HelperTextProps={{
+        ...HelperTextProps,
+        children: helperText,
+        visible: !!helperText,
+        type: error ? 'error' : 'info',
+      }}
+    >
       <View {...InnerContainerProps}>
         {labelPosition === 'left' && (
           <PaperText {...LabelProps}>{label}</PaperText>
@@ -55,16 +59,7 @@ export const Switch: React.FC<SwitchProps> = ({
           <PaperText {...LabelProps}>{label}</PaperText>
         )}
       </View>
-      {!!helperText && (
-        <PaperHelperText
-          {...HelperTextProps}
-          type={helperTextType}
-          visible={!!helperText}
-        >
-          {helperText}
-        </PaperHelperText>
-      )}
-    </View>
+    </Container>
   );
 };
 

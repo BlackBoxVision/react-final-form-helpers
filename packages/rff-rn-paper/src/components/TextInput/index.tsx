@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ViewProps } from 'react-native';
+import { ViewProps } from 'react-native';
 import {
   Text as PaperText,
   TextInput as PaperTextInput,
@@ -8,6 +8,8 @@ import {
 import { FieldRenderProps } from 'react-final-form';
 
 import { useHasError } from '../../hooks/useHasError';
+
+import { Container } from '../Container';
 
 type PaperTextProps = React.ComponentProps<typeof PaperText>;
 type PaperTextInputProps = React.ComponentProps<typeof PaperTextInput>;
@@ -52,11 +54,18 @@ export const TextInput: React.FC<TextInputProps> = ({
   ...TextInputProps
 }) => {
   const error = useHasError(meta);
-  const helperTextType = error ? 'error' : 'info';
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
+    <Container
+      {...ContainerProps}
+      HelperTextProps={{
+        ...HelperTextProps,
+        children: helperText,
+        visible: !!helperText,
+        type: error ? 'error' : 'info',
+      }}
+    >
       <PaperTextInput
         {...InputProps}
         {...TextInputProps}
@@ -66,16 +75,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         onBlur={(event: any) => onBlur(event)}
         onFocus={(event: any) => onFocus(event)}
       />
-      {!!helperText && (
-        <PaperHelperText
-          {...HelperTextProps}
-          type={helperTextType}
-          visible={!!helperText}
-        >
-          {helperText}
-        </PaperHelperText>
-      )}
-    </View>
+    </Container>
   );
 };
 

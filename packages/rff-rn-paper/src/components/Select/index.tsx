@@ -1,13 +1,11 @@
 import React from 'react';
-import { View, Picker } from 'react-native';
-import {
-  Text as PaperText,
-  HelperText as PaperHelperText,
-} from 'react-native-paper';
+import { Picker } from 'react-native';
+import { Text as PaperText } from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-import { BaseInputProps } from 'components/TextInput';
+import { BaseInputProps } from '../TextInput';
+import { Container } from '../Container';
 
 export type SelectProps = BaseInputProps & {
   /**
@@ -36,11 +34,18 @@ export const Select: React.FC<SelectProps> = ({
   ...SelectProps
 }) => {
   const error = useHasError(meta);
-  const helperTextType = error ? 'error' : 'info';
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
+    <Container
+      {...ContainerProps}
+      HelperTextProps={{
+        ...HelperTextProps,
+        children: helperText,
+        visible: !!helperText,
+        type: error ? 'error' : 'info',
+      }}
+    >
       <PaperText {...LabelProps}>{label}</PaperText>
       <Picker {...SelectProps} selectedValue={value} onValueChange={onChange}>
         {options &&
@@ -48,16 +53,7 @@ export const Select: React.FC<SelectProps> = ({
             <Picker.Item label={label} value={value} />
           ))}
       </Picker>
-      {!!helperText && (
-        <PaperHelperText
-          {...HelperTextProps}
-          type={helperTextType}
-          visible={!!helperText}
-        >
-          {helperText}
-        </PaperHelperText>
-      )}
-    </View>
+    </Container>
   );
 };
 

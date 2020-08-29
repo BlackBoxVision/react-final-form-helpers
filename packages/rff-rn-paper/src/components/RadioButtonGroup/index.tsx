@@ -2,13 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import {
   Text as PaperText,
-  HelperText as PaperHelperText,
   RadioButton as PaperRadioButton,
 } from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-import { BaseInputProps } from 'components/TextInput';
+import { BaseInputProps } from '../TextInput';
+import { Container } from '../Container';
 
 type PaperRadioButtonProps = React.ComponentProps<typeof PaperRadioButton>;
 type PaperRadioButtonGroupProps = React.ComponentProps<
@@ -51,11 +51,18 @@ export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   ...RadioButtonGroupProps
 }) => {
   const error = useHasError(meta);
-  const helperTextType = error ? 'error' : 'info';
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <View {...ContainerProps}>
+    <Container
+      {...ContainerProps}
+      HelperTextProps={{
+        ...HelperTextProps,
+        children: helperText,
+        visible: !!helperText,
+        type: error ? 'error' : 'info',
+      }}
+    >
       <PaperText {...LabelProps}>{label}</PaperText>
       <PaperRadioButton.Group
         {...RadioButtonGroupProps}
@@ -75,16 +82,7 @@ export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
             </View>
           ))}
       </PaperRadioButton.Group>
-      {!!helperText && (
-        <PaperHelperText
-          {...HelperTextProps}
-          type={helperTextType}
-          visible={!!helperText}
-        >
-          {helperText}
-        </PaperHelperText>
-      )}
-    </View>
+    </Container>
   );
 };
 
