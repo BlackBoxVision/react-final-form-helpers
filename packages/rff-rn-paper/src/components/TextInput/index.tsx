@@ -1,36 +1,33 @@
 import React from 'react';
-import { View as RNView } from 'react-native';
+import { View, ViewProps } from 'react-native';
 import {
-  TextInput as RNTextInput,
-  HelperText as RNHelperText,
+  Text as PaperText,
+  TextInput as PaperTextInput,
+  HelperText as PaperHelperText,
 } from 'react-native-paper';
+import { FieldRenderProps } from 'react-final-form';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export interface TextInputProps {
-  input?: any;
-  meta?: any;
-  style?: any;
-  label?: string;
-  dense?: boolean;
-  disabled?: boolean;
-  multiline?: boolean;
-  placeholder?: string;
-  ContainerProps?: any;
-  HelperTextProps?: any;
-  numberOfLines?: number;
-  selectionColor?: string;
-  underlineColor?: string;
-  mode?: 'flat' | 'outlined';
-  getHelperText?: (errorKeyOrText?: string) => string;
-}
+type PaperTextProps = React.ComponentProps<typeof PaperText>;
+type PaperTextInputProps = React.ComponentProps<typeof PaperTextInput>;
+type PaperHelperTextProps = React.ComponentProps<typeof PaperHelperText>;
 
-export const TextInput: React.FunctionComponent<TextInputProps> = ({
+export type BaseInputProps = FieldRenderProps<any> & {
+  LabelProps?: PaperTextProps;
+  ContainerProps?: ViewProps;
+  HelperTextProps?: PaperHelperTextProps;
+  InnerLabelProps?: PaperTextProps;
+  InnerContainerProps?: ViewProps;
+  getHelperText?: (errorKeyOrText?: string) => string;
+};
+
+export type TextInputProps = BaseInputProps & PaperTextInputProps;
+
+export const TextInput: React.FC<TextInputProps> = ({
   input: { onChange, onFocus, onBlur, value, ...InputProps },
   meta,
-  mode,
   label,
-  style,
   getHelperText,
   ContainerProps,
   HelperTextProps,
@@ -41,29 +38,26 @@ export const TextInput: React.FunctionComponent<TextInputProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <RNView {...ContainerProps}>
-      <RNTextInput
+    <View {...ContainerProps}>
+      <PaperTextInput
         {...InputProps}
         {...TextInputProps}
-        mode={mode}
-        label={label}
         value={value}
         error={error}
-        style={style}
-        onBlur={onBlur}
-        onFocus={onFocus}
         onChangeText={onChange}
+        onBlur={(event: any) => onBlur(event)}
+        onFocus={(event: any) => onFocus(event)}
       />
       {!!helperText && (
-        <RNHelperText
+        <PaperHelperText
           {...HelperTextProps}
           type={helperTextType}
           visible={!!helperText}
         >
           {helperText}
-        </RNHelperText>
+        </PaperHelperText>
       )}
-    </RNView>
+    </View>
   );
 };
 

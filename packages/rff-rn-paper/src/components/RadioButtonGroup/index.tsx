@@ -1,42 +1,38 @@
 import React from 'react';
-import { View as RNView } from 'react-native';
+import { View } from 'react-native';
 import {
-  Text as RNText,
-  RadioButton as RNRadioButton,
-  HelperText as RNHelperText,
+  Text as PaperText,
+  HelperText as PaperHelperText,
+  RadioButton as PaperRadioButton,
 } from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export interface RadioButtonGroupProps {
-  input?: any;
-  meta?: any;
-  style?: any;
-  color?: string;
-  label?: string;
-  value?: string;
-  disabled?: boolean;
-  ContainerProps?: any;
-  LabelProps?: any;
-  HelperTextProps?: any;
-  InnerLabelProps?: any;
-  uncheckedColor?: string;
-  InnerContainerProps?: any;
-  options?: Array<{ value?: any; label: string }>;
-  getHelperText?: (errorKeyOrText?: string) => string;
-}
+import { BaseInputProps } from 'components/TextInput';
 
-export const RadioButtonGroup: React.FunctionComponent<
-  RadioButtonGroupProps
-> = ({
+type PaperRadioButtonProps = React.ComponentProps<typeof PaperRadioButton>;
+type PaperRadioButtonGroupProps = React.ComponentProps<
+  typeof PaperRadioButton.Group
+>;
+
+export type RadioButtonGroupProps = BaseInputProps &
+  PaperRadioButtonGroupProps & {
+    label?: string;
+    labelPosition?: 'left' | 'right';
+    RadioButtonProps?: PaperRadioButtonProps;
+    options?: Array<{ value?: any; label: string }>;
+  };
+
+export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   input: { onChange, value },
   meta,
   label,
-  style,
+  labelPosition,
   options,
   getHelperText,
   ContainerProps,
   InnerContainerProps,
+  RadioButtonProps,
   InnerLabelProps,
   LabelProps,
   HelperTextProps,
@@ -47,37 +43,43 @@ export const RadioButtonGroup: React.FunctionComponent<
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <RNView {...ContainerProps}>
-      <RNText {...LabelProps}>{label}</RNText>
-      <RNRadioButton.Group
+    <View {...ContainerProps}>
+      <PaperText {...LabelProps}>{label}</PaperText>
+      <PaperRadioButton.Group
         {...RadioButtonGroupProps}
         onValueChange={() => onChange(value)}
         value={value}
       >
         {options &&
           options.map(({ label, value }) => (
-            <RNView {...InnerContainerProps}>
-              <RNText {...InnerLabelProps}>{label}</RNText>
-              <RNRadioButton value={value} />
-            </RNView>
+            <View {...InnerContainerProps}>
+              {labelPosition === 'left' && (
+                <PaperText {...InnerLabelProps}>{label}</PaperText>
+              )}
+              <PaperRadioButton {...RadioButtonProps} value={value} />
+              {labelPosition === 'right' && (
+                <PaperText {...InnerLabelProps}>{label}</PaperText>
+              )}
+            </View>
           ))}
-      </RNRadioButton.Group>
+      </PaperRadioButton.Group>
       {!!helperText && (
-        <RNHelperText
+        <PaperHelperText
           {...HelperTextProps}
           type={helperTextType}
           visible={!!helperText}
         >
           {helperText}
-        </RNHelperText>
+        </PaperHelperText>
       )}
-    </RNView>
+    </View>
   );
 };
 
 RadioButtonGroup.displayName = 'RadioButtonGroup';
 RadioButtonGroup.defaultProps = {
   getHelperText: str => str,
+  labelPosition: 'left',
   style: {},
   options: [],
   InnerLabelProps: {},

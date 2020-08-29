@@ -1,28 +1,24 @@
 import React from 'react';
-import { View as RNView, Picker as RNPicker } from 'react-native';
-import { Text as RNText, HelperText as RNHelperText } from 'react-native-paper';
+import { View, Picker } from 'react-native';
+import {
+  Text as PaperText,
+  HelperText as PaperHelperText,
+} from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export interface SelectProps {
-  input?: any;
-  meta?: any;
-  style?: any;
+import { BaseInputProps } from 'components/TextInput';
+
+export type SelectProps = BaseInputProps & {
   label?: string;
-  disabled?: boolean;
-  ContainerProps?: any;
-  LabelProps?: any;
-  HelperTextProps?: any;
   labelPosition?: 'left' | 'right';
   options?: Array<{ value?: any; label: string }>;
-  getHelperText?: (errorKeyOrText?: string) => string;
 }
 
-export const Select: React.FunctionComponent<SelectProps> = ({
+export const Select: React.FC<SelectProps> = ({
   input: { onChange, value },
   meta,
   label,
-  style,
   options,
   getHelperText,
   ContainerProps,
@@ -35,29 +31,28 @@ export const Select: React.FunctionComponent<SelectProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <RNView {...ContainerProps}>
-      <RNText {...LabelProps}>{label}</RNText>
-      <RNPicker
+    <View {...ContainerProps}>
+      <PaperText {...LabelProps}>{label}</PaperText>
+      <Picker
         {...SelectProps}
-        style={style}
         selectedValue={value}
         onValueChange={onChange}
       >
         {options &&
           options.map(({ label, value }) => (
-            <RNPicker.Item label={label} value={value} />
+            <Picker.Item label={label} value={value} />
           ))}
-      </RNPicker>
+      </Picker>
       {!!helperText && (
-        <RNHelperText
+        <PaperHelperText
           {...HelperTextProps}
           type={helperTextType}
           visible={!!helperText}
         >
           {helperText}
-        </RNHelperText>
+        </PaperHelperText>
       )}
-    </RNView>
+    </View>
   );
 };
 

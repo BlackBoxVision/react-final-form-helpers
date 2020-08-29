@@ -1,29 +1,24 @@
 import React from 'react';
-import { View as RNView } from 'react-native';
+import { View } from 'react-native';
 import {
-  Text as RNText,
-  Checkbox as RNCheckbox,
-  HelperText as RNHelperText,
+  Text as PaperText,
+  Checkbox as PaperCheckbox,
+  HelperText as PaperHelperText,
 } from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export interface CheckboxProps {
-  input?: any;
-  meta?: any;
-  color?: string;
-  label?: string;
-  disabled?: boolean;
-  ContainerProps?: any;
-  LabelProps?: any;
-  HelperTextProps?: any;
-  uncheckedColor?: string;
-  InnerContainerProps?: any;
-  labelPosition?: 'left' | 'right';
-  getHelperText?: (errorKeyOrText?: string) => string;
-}
+import { BaseInputProps } from 'components/TextInput';
 
-export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
+type PaperCheckBoxProps = React.ComponentProps<typeof PaperCheckbox>;
+
+export type CheckboxProps = BaseInputProps &
+  PaperCheckBoxProps & {
+    label?: string;
+    labelPosition?: 'left' | 'right';
+  };
+
+export const Checkbox: React.FC<CheckboxProps> = ({
   input: { onChange, value },
   meta,
   label,
@@ -40,26 +35,30 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <RNView {...ContainerProps}>
-      <RNView {...InnerContainerProps}>
-        {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
-        <RNCheckbox
+    <View {...ContainerProps}>
+      <View {...InnerContainerProps}>
+        {labelPosition === 'left' && (
+          <PaperText {...LabelProps}>{label}</PaperText>
+        )}
+        <PaperCheckbox
           {...CheckboxProps}
           onPress={() => onChange(!value)}
           status={value ? 'checked' : 'unchecked'}
         />
-        {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
-      </RNView>
+        {labelPosition === 'right' && (
+          <PaperText {...LabelProps}>{label}</PaperText>
+        )}
+      </View>
       {!!helperText && (
-        <RNHelperText
+        <PaperHelperText
           {...HelperTextProps}
           type={helperTextType}
           visible={!!helperText}
         >
           {helperText}
-        </RNHelperText>
+        </PaperHelperText>
       )}
-    </RNView>
+    </View>
   );
 };
 

@@ -1,30 +1,24 @@
 import React from 'react';
-import { View as RNView } from 'react-native';
+import { View } from 'react-native';
 import {
-  Text as RNText,
-  RadioButton as RNRadioButton,
-  HelperText as RNHelperText,
+  Text as PaperText,
+  HelperText as PaperHelperText,
+  RadioButton as PaperRadioButton,
 } from 'react-native-paper';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export interface RadioButtonProps {
-  input?: any;
-  meta?: any;
-  color?: string;
-  label?: string;
-  value?: string;
-  disabled?: boolean;
-  ContainerProps?: any;
-  LabelProps?: any;
-  HelperTextProps?: any;
-  uncheckedColor?: string;
-  InnerContainerProps?: any;
-  labelPosition?: 'left' | 'right';
-  getHelperText?: (errorKeyOrText?: string) => string;
-}
+import { BaseInputProps } from 'components/TextInput';
 
-export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
+type PaperRadioButtonProps = React.ComponentProps<typeof PaperRadioButton>;
+
+export type RadioButtonProps = BaseInputProps &
+  PaperRadioButtonProps & {
+    label?: string;
+    labelPosition?: 'left' | 'right';
+  };
+
+export const RadioButton: React.FC<RadioButtonProps> = ({
   input: { onChange, value: inputValue },
   meta,
   label,
@@ -42,27 +36,31 @@ export const RadioButton: React.FunctionComponent<RadioButtonProps> = ({
   const helperText = getHelperText(error && meta.error);
 
   return (
-    <RNView {...ContainerProps}>
-      <RNView {...InnerContainerProps}>
-        {labelPosition === 'left' && <RNText {...LabelProps}>{label}</RNText>}
-        <RNRadioButton
+    <View {...ContainerProps}>
+      <View {...InnerContainerProps}>
+        {labelPosition === 'left' && (
+          <PaperText {...LabelProps}>{label}</PaperText>
+        )}
+        <PaperRadioButton
           {...RadioButtonProps}
           value={value}
           onPress={() => onChange(value)}
           status={inputValue ? 'checked' : 'unchecked'}
         />
-        {labelPosition === 'right' && <RNText {...LabelProps}>{label}</RNText>}
-      </RNView>
+        {labelPosition === 'right' && (
+          <PaperText {...LabelProps}>{label}</PaperText>
+        )}
+      </View>
       {!!helperText && (
-        <RNHelperText
+        <PaperHelperText
           {...HelperTextProps}
           type={helperTextType}
           visible={!!helperText}
         >
           {helperText}
-        </RNHelperText>
+        </PaperHelperText>
       )}
-    </RNView>
+    </View>
   );
 };
 
