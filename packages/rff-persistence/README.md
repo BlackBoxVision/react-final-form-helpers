@@ -39,7 +39,75 @@ npm install --save @blackbox-vision/rff-persistence
 
 ## Example Usages
 
+After reading and performing the previous steps, you should be able to import the library and use it like in this example:
+
+```javascript
+import React from 'react';
+import { Form } from 'react-final-form';
+import { FinalFormPersist } from '@blackbox-vision/rff-persistence';
+
+const MyForm = props => {
+  const initialValues = Storage.getItem('example', { isSessionStorage: false });
+
+  return (
+    <Form
+      onSubmit={values => alert(values)}
+      render={({ handleSubmit }) => (
+        <>
+          <form onSubmit={handleSubmit}>{/** your form code **/}</form>
+          <FinalFormPersist
+            isSessionStorage={false}
+            formName="example"
+            ttl={250000}
+          />
+        </>
+      )}
+    />
+  );
+};
+
+MyForm.displayName = 'MyForm';
+
+export default MyForm;
+```
+
 ## Component APIs
+
+### FinalFormPersist
+
+The `FinalFormPersist` component has the following props:
+
+| Properties       | Types   | Default Value | Description                                                   |
+| ---------------- | ------- | ------------- | ------------------------------------------------------------- |
+| isSessionStorage | boolean | false         | Flag to determine if use session-storage as persistence layer |
+| formName         | string  | -             | Name of the form to save to the storage                       |
+| ttl              | number  | -             | Flag to set cache duration                                    |
+
+### Storage
+
+The `Storage` class has the following methods:
+
+#### setItem
+
+A function that takes some parameters and persist values in `session` or `local` storage.
+
+##### Parameters
+
+- `key`: **string** - the key associated to the value to persist
+- `values`: **object** - the values to persist
+- `options`: **StorageConfig**
+  - `isSessionStorage`: **boolean** - flag that enables persistence in `session` storage
+  - `ttl`: **number** - number that determines the time to persist the values in cache
+
+#### getItem
+
+A function that takes some parameters and retrieves values from `session` or `local` storage.
+
+##### Parameters
+
+- `key`: **string** - the key associated to the persisted value
+- `options`: **StorageConfig**
+  - `isSessionStorage`: **boolean** - flag that retrieves the values from `session` storage
 
 ## Issues
 
