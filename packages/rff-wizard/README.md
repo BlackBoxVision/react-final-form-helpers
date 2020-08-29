@@ -1,4 +1,4 @@
-# RFF Wizard [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-wizard.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-wizard)
+# RFF Wizard [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-wizard.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-wizard) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 React Final Form Wizard Pattern
 
@@ -142,7 +142,7 @@ The `WizardForm` component has the following props:
 | initialStep | number       | 0             | The initial step for the form               |
 | layout      | ReactElement | -             | The Layout component to wrap the WizardForm |
 
-Also, `WizardForm` inherits all props from `react-final-form`.
+Also, `WizardForm` inherits all `Form` props from `react-final-form`.
 
 ### WizardPage
 
