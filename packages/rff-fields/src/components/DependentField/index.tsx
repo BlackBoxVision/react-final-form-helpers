@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
-import { useFormState } from 'react-final-form';
 import { useAsync } from 'react-use';
+import { useFormState } from 'react-final-form';
 
 export interface DependentFieldProps {
   onChange: any;
   children?: any;
 }
 
-export const DependentField: React.FunctionComponent<DependentFieldProps> = ({
+export const DependentField: React.FC<DependentFieldProps> = ({
   onChange,
   children,
 }) => {

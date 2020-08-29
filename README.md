@@ -45,12 +45,12 @@ This set of libraries is still under construction. We've to do the following:
 
 ## Issues
 
-Please, open an [issue](https://github.com/BlackBoxVision/styled-animation/issues) following one of the issues templates. We will do our best to fix them.
+Please, open an [issue](https://github.com/BlackBoxVision/react-final-form-helpers/issues) following one of the issues templates. We will do our best to fix them.
 
 ## Contributing
 
-If you want to contribute to this project see [contributing](https://github.com/BlackBoxVision/styled-animation/blob/master/CONTRIBUTING.md) for more information.
+If you want to contribute to this project see [contributing](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/CONTRIBUTING.md) for more information.
 
 ## License
 
-Distributed under the **MIT license**. See [LICENSE](https://github.com/BlackBoxVision/styled-animation/blob/master/LICENSE) for more information.
+Distributed under the **MIT license**. See [LICENSE](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/LICENSE) for more information.
