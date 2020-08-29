@@ -8,26 +8,26 @@ This repository contains a set of libraries that help you build React Final Form
 
 A set of libraries with custom Fields that cover some specific use-cases:
 
-- [`@blackbox-vision/rff-fields`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-fields/README.md): Custom fields patterns for React Final Form
+- [`@blackbox-vision/rff-fields`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-fields): Custom fields patterns for React Final Form
 
 ### UI Wrapper Layer
 
 A set of libraries of UI components wrappers for faster rff integration:
 
-- [`@blackbox-vision/rff-rn-paper`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-rn-paper/README.md): Integration with RFF and React Native Paper
-- [`@blackbox-vision/rff-material-ui`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-material-ui/README.md): Integration with RFF and Material UI
+- [`@blackbox-vision/rff-rn-paper`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-rn-paper): Integration with RFF and React Native Paper
+- [`@blackbox-vision/rff-material-ui`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-material-ui): Integration with RFF and Material UI
 
 ### Persistence Layer
 
 A set of libraries for handling form persistence in the browser:
 
-- [`@blackbox-vision/rff-persistence`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-persistence/README.md): Integration with RFF and localForage
+- [`@blackbox-vision/rff-persistence`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-persistence): Integration with RFF and localForage
 
 ### Form Patterns Layer
 
 A set of libraries that simplify build form variants:
 
-- [`@blackbox-vision/rff-wizard`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-wizard/README.md): Integration with RFF and Wizard Forms
+- [`@blackbox-vision/rff-wizard`](https://github.com/BlackBoxVision/react-final-form-helpers/blob/master/packages/rff-wizard): Integration with RFF and Wizard Forms
 
 ## TODO
 

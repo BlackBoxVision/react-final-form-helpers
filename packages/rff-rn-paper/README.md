@@ -39,7 +39,7 @@ npm install --save @blackbox-vision/rff-rn-paper
 
 ## Example Usages
 
-## Component APIs
+## Component APIs
 
 ## Issues
 

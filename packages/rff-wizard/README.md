@@ -39,7 +39,7 @@ npm install --save @blackbox-vision/rff-wizard
 
 ## Example Usages
 
-## Component APIs
+## Component APIs
 
 ## Issues
 
