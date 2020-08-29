@@ -14,11 +14,29 @@ type PaperTextInputProps = React.ComponentProps<typeof PaperTextInput>;
 type PaperHelperTextProps = React.ComponentProps<typeof PaperHelperText>;
 
 export type BaseInputProps = FieldRenderProps<any> & {
+  /**
+   * Property that represents the values for the Label
+   */
   LabelProps?: PaperTextProps;
+  /**
+   * Property that represents the values for the View container
+   */
   ContainerProps?: ViewProps;
+  /**
+   * Property that represents the values for the Helper Text
+   */
   HelperTextProps?: PaperHelperTextProps;
+  /**
+   * Property that represents the values for the Label
+   */
   InnerLabelProps?: PaperTextProps;
+  /**
+   * Property that represents the values for the inside View container
+   */
   InnerContainerProps?: ViewProps;
+  /**
+   * Property that represents a function to get a message to show in the HelperText
+   */
   getHelperText?: (errorKeyOrText?: string) => string;
 };
 

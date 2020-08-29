@@ -14,7 +14,13 @@ type PaperRadioButtonProps = React.ComponentProps<typeof PaperRadioButton>;
 
 export type RadioButtonProps = BaseInputProps &
   PaperRadioButtonProps & {
+    /**
+     * Property that represents the label to show
+     */
     label?: string;
+    /**
+     * Property that represents the position of the label
+     */
     labelPosition?: 'left' | 'right';
   };
 

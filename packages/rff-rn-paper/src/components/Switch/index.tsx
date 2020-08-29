@@ -14,7 +14,13 @@ type PaperSwitchProps = React.ComponentProps<typeof PaperSwitch>;
 
 export type SwitchProps = BaseInputProps &
   PaperSwitchProps & {
+    /**
+     * Property that represents the label to show
+     */
     label?: string;
+    /**
+     * Property that represents the position of the label
+     */
     labelPosition?: 'left' | 'right';
   };
 

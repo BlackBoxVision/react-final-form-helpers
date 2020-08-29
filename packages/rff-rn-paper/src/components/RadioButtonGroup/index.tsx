@@ -17,9 +17,21 @@ type PaperRadioButtonGroupProps = React.ComponentProps<
 
 export type RadioButtonGroupProps = BaseInputProps &
   PaperRadioButtonGroupProps & {
+    /**
+     * Property that represents the label to show
+     */
     label?: string;
+    /**
+     * Property that represents the position of the label
+     */
     labelPosition?: 'left' | 'right';
+    /**
+     * Property that represents the props related to the RadioButton
+     */
     RadioButtonProps?: PaperRadioButtonProps;
+    /**
+     * Property that represents the options to render the RadioButtonGroup
+     */
     options?: Array<{ value?: any; label: string }>;
   };
 

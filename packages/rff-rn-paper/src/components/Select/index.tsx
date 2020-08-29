@@ -10,10 +10,19 @@ import { useHasError } from '../../hooks/useHasError';
 import { BaseInputProps } from 'components/TextInput';
 
 export type SelectProps = BaseInputProps & {
+  /**
+   * Property that represents the label to show
+   */
   label?: string;
+  /**
+   * Property that represents the position of the label
+   */
   labelPosition?: 'left' | 'right';
+  /**
+   * Property that represents the options to render the Select
+   */
   options?: Array<{ value?: any; label: string }>;
-}
+};
 
 export const Select: React.FC<SelectProps> = ({
   input: { onChange, value },
@@ -33,11 +42,7 @@ export const Select: React.FC<SelectProps> = ({
   return (
     <View {...ContainerProps}>
       <PaperText {...LabelProps}>{label}</PaperText>
-      <Picker
-        {...SelectProps}
-        selectedValue={value}
-        onValueChange={onChange}
-      >
+      <Picker {...SelectProps} selectedValue={value} onValueChange={onChange}>
         {options &&
           options.map(({ label, value }) => (
             <Picker.Item label={label} value={value} />

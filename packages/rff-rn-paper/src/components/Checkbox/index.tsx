@@ -14,7 +14,13 @@ type PaperCheckBoxProps = React.ComponentProps<typeof PaperCheckbox>;
 
 export type CheckboxProps = BaseInputProps &
   PaperCheckBoxProps & {
+    /**
+     * Property that represents the label to show
+     */
     label?: string;
+    /**
+     * Property that represents the position of the label
+     */
     labelPosition?: 'left' | 'right';
   };
 
