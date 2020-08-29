@@ -17,7 +17,7 @@ React Final Form Custom Fieds
 
 ## Use Case
 
-You're working with `react-final-form` and you need common use cases like dependent fields, what a field for changes, use prefix on fields.
+You're working with `react-final-form` and you need common use cases like dependent fields, watch a field for changes, use prefix on fields.
 
 ## Compatibility
 
