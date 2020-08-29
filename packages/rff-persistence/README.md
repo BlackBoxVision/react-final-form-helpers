@@ -1,4 +1,4 @@
-# RFF Persistence [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-persistence.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-persistence)
+# RFF Persistence [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Frff-persistence.svg)](https://badge.fury.io/js/%40blackbox-vision%2Frff-persistence) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/rff-persistence/badge.svg)](https://snyk.io/test/github/blackboxvision/rff-persistence)
 
 React Final Form persistence layer with LocalForage
 
