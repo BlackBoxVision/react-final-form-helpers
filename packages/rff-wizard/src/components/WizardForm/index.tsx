@@ -1,88 +1,75 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { Form, FormProps } from 'react-final-form';
+import React, { useState, useMemo, useCallback, ReactElement } from 'react';
+import { Form, FormProps, FormRenderProps } from 'react-final-form';
+import { SubmissionErrors } from 'final-form';
 
-/** Description of WizardFormRenderProps interface */
-export interface WizardFormRenderProps {
-  /** Object containing all values captured by the form */
-  values: any;
+export interface WizardFormRenderProps extends FormRenderProps {
   /** Current active step in the wizard form */
   activeStep: number;
   /** Total steps in the wizard form */
   totalSteps: number;
   /** Flag to indicate that we're on the last page */
   isLastPage: boolean;
-  /** Flag to indicate that no field has been modified */
-  pristine: boolean;
-  /** Flag to indicate that the form is runnig submission */
-  submitting: boolean;
-  /** Flag to indicate the form has errors on submit action */
-  hasSubmitErrors: boolean;
   /** Function  to move to the previous step in the wizard form*/
-  onBack?: (values?: any) => void;
+  onBack?: (
+    values: any,
+  ) =>
+    | SubmissionErrors
+    | Promise<SubmissionErrors | undefined>
+    | undefined
+    | void;
   /** Function to move to the next step in the wizard form */
-  onNext?: (values?: any) => void;
+  onNext?: (
+    values: any,
+  ) =>
+    | SubmissionErrors
+    | Promise<SubmissionErrors | undefined>
+    | undefined
+    | void;
 }
 
-/** Description of WizardFormProps interface */
 export interface WizardFormProps extends FormProps {
-  /** The child components accepted for this component */
-  children: any;
-  /** Default values for Final Form */
-  initialValues: any;
-  /** Default wizard page */
-  initialPage: number;
-  /** Function that triggers submit */
-  onSubmit: (values: any) => any;
+  /** Default wizard step */
+  initialStep: number;
   /** Function used to render a title component */
-  renderTitle: (props: WizardFormRenderProps) => React.ReactNode;
-  /** Function used to render a stepper component */
-  renderStepper: (props: WizardFormRenderProps) => React.ReactNode;
-  /** Function used to render a groups of buttons component */
-  renderButtons: (props: WizardFormRenderProps) => React.ReactNode;
+  render: (props: WizardFormRenderProps) => React.ReactNode;
 }
 
-export const WizardForm: React.FunctionComponent<WizardFormProps> = ({
+export const WizardForm: React.FC<WizardFormProps> = ({
+  render,
   children,
   onSubmit,
-  renderTitle,
-  renderStepper,
-  renderButtons,
-  initialPage,
+  initialStep,
   initialValues,
-  ...finalFormProps
+  ...formProps
 }) => {
-  const [state, setState] = useState({
-    values: initialValues,
-    page: initialPage,
-  });
+  const [activeStep, setActiveStep] = useState(initialStep);
+  const [values, setValues] = useState(initialValues);
 
-  const activePage = useMemo(
-    () => React.Children.toArray(children)[state.page],
-    [state.page, children],
+  const totalSteps = useMemo(() => React.Children.count(children), [children]);
+
+  const activePage: ReactElement = useMemo(
+    () => React.Children.toArray(children)[activeStep] as ReactElement,
+    [activeStep, children],
   );
 
-  const isLastPage = useMemo(
-    () => state.page === React.Children.count(children) - 1,
-    [state.page, children],
-  );
+  const isLastPage = useMemo(() => activeStep === totalSteps - 1, [
+    activeStep,
+    totalSteps,
+  ]);
 
   const onNext = useCallback(
-    values =>
-      setState({
-        page: Math.min(state.page + 1, children.length - 1),
-        values,
-      }),
-    [state.page, children],
+    values => {
+      setValues(values);
+      setActiveStep(
+        Math.min(activeStep + 1, React.Children.toArray(children).length - 1),
+      );
+    },
+    [activeStep, children],
   );
 
-  const onBack = useCallback(
-    () =>
-      setState({
-        page: Math.max(state.page - 1, 0),
-        values: state.values,
-      }),
-    [state],
-  );
+  const onBack = useCallback(() => setActiveStep(Math.max(activeStep - 1, 0)), [
+    activeStep,
+  ]);
 
   const validate = useCallback(
     values =>
@@ -91,60 +78,35 @@ export const WizardForm: React.FunctionComponent<WizardFormProps> = ({
   );
 
   const handleSubmit = useCallback(
-    values => (isLastPage ? onSubmit(values) : onNext(values)),
+    (values, form, callback) =>
+      isLastPage ? onSubmit(values, form, callback) : onNext(values),
     [isLastPage, onSubmit, onNext],
   );
 
   return (
     <Form
-      {...finalFormProps}
+      {...formProps}
       validate={validate}
+      initialValues={values}
       onSubmit={handleSubmit}
-      initialValues={state.values}
     >
-      {({ handleSubmit, submitting, values, pristine, hasSubmitErrors }) => (
-        <form onSubmit={handleSubmit}>
-          {renderTitle &&
-            renderTitle({
-              values,
-              pristine,
-              submitting,
-              isLastPage,
-              hasSubmitErrors,
-              activeStep: state.page,
-              totalSteps: React.Children.count(children),
-            })}
-          {renderStepper &&
-            renderStepper({
-              values,
-              pristine,
-              submitting,
-              isLastPage,
-              hasSubmitErrors,
-              activeStep: state.page,
-              totalSteps: React.Children.count(children),
-            })}
-          {activePage}
-          {renderButtons &&
-            renderButtons({
-              values,
-              onBack,
-              onNext,
-              pristine,
-              submitting,
-              isLastPage,
-              hasSubmitErrors,
-              activeStep: state.page,
-              totalSteps: React.Children.count(children),
-            })}
-        </form>
-      )}
+      {formRenderProps =>
+        render &&
+        render({
+          ...formRenderProps,
+          onBack,
+          onNext,
+          isLastPage,
+          activeStep,
+          totalSteps,
+        })
+      }
     </Form>
   );
 };
 
 WizardForm.displayName = 'WizardForm';
 WizardForm.defaultProps = {
-  initialPage: 0,
-  initialValues: {},
+  initialStep: 0,
+  initialValues: null,
 };
