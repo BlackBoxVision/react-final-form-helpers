@@ -41,38 +41,116 @@ npm install --save @blackbox-vision/rff-wizard
 
 After reading and performing the previous steps, you should be able to import the library and use it like in this example:
 
+1. Create a `FormLayout` component:
+
 ```javascript
 import React from 'react';
-import { Form } from 'react-final-form';
-import { FinalFormPersist } from '@blackbox-vision/rff-persistence';
 
-const MyForm = props => {
-  const initialValues = Storage.getItem('example', { isSessionStorage: false });
-
-  return (
-    <WizardForm
-      initialStep={0}
-      onSubmit={values => alert(values)}
-      render={({ handleSubmit }) => (
-        <>
-          <form onSubmit={handleSubmit}>{/** your form code **/}</form>
-          <FinalFormPersist
-            isSessionStorage={false}
-            formName="example"
-            ttl={250000}
-          />
-        </>
+const MyFormLayout = ({
+  handleSubmit,
+  activeStep,
+  isLastPage,
+  submitting,
+  children,
+  onNext,
+  onBack,
+}) => (
+  <form onSubmit={handleSubmit}>
+    <h1>My Form</h1>
+    {children}
+    <div className="buttons">
+      {activeStep > 0 && (
+        <button type="button" onClick={onBack}>
+          « Previous
+        </button>
       )}
-    />
-  );
-};
+      {!isLastPage && <button onClick={onNext}>Next »</button>}
+      {isLastPage && (
+        <button type="submit" disabled={submitting}>
+          Submit
+        </button>
+      )}
+    </div>
+  </form>
+);
 
-MyForm.displayName = 'MyForm';
+MyFormLayout.displayName = 'MyFormLayout';
 
-export default MyForm;
+export default MyFormLayout;
+```
+
+2. Create a custom `Form`:
+
+```javascript
+import React from 'react';
+import { Form, Field } from 'react-final-form';
+import { WizardForm, WizardPage } from '@blackbox-vision/rff-wizard';
+
+import MyFormLayout from './MyFormLayout';
+
+const MyWizardForm = props => (
+  <WizardForm layout={MyFormLayout} onSubmit={values => alert(values)}>
+    <WizardPage>
+      <Field
+        type="text"
+        name="firstname"
+        component="input"
+        placeholder="Firstname"
+      />
+      <Field
+        type="text"
+        name="lastname"
+        component="input"
+        placeholder="Lastname"
+      />
+    </WizardPage>
+    <WizardPage
+      validate={values => {
+        const errors = {};
+
+        if (!values.password) {
+          errors.password = 'Password is required';
+        }
+
+        return errors;
+      }}
+    >
+      <Field name="email" type="email" component="input" placeholder="Email" />
+      <Field
+        name="password"
+        type="password"
+        component="input"
+        placeholder="Password"
+      />
+    </WizardPage>
+  </WizardForm>
+);
+
+MyWizardForm.displayName = 'MyForm';
+
+export default MyWizardForm;
 ```
 
 ## Component APIs
+
+### WizardForm
+
+The `WizardForm` component has the following props:
+
+| Properties  | Types        | Default Value | Description                                 |
+| ----------- | ------------ | ------------- | ------------------------------------------- |
+| initialStep | number       | 0             | The initial step for the form               |
+| layout      | ReactElement | -             | The Layout component to wrap the WizardForm |
+
+Also, `WizardForm` inherits all props from `react-final-form`.
+
+### WizardPage
+
+The `WizardPage` component has the following props:
+
+| Properties | Types    | Default Value | Description                                                               |
+| ---------- | -------- | ------------- | ------------------------------------------------------------------------- |
+| validate   | function | -             | A function that gives the form values and performs validation over fields |
 
 ## Issues
 
