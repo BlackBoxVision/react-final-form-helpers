@@ -58,10 +58,10 @@ The `ConditionalField` component has the following props:
 
 The `DependentField` component has the following props:
 
-| Properties | Types    | Default Value | Description                                                                                                   |
-| ---------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| onChange   | Function | -             | Property that represents a function that let you track all form values change and get newer values            |
-| children   | Function | -             | Property that represents a children as a function that takes all form values and return a valid React Element |
+| Properties | Types    | Default Value | Description                                                                   |
+| ---------- | -------- | ------------- | ----------------------------------------------------------------------------- |
+| onChange   | Function | -             | Property that represents a function that let you track all form values change |
+| children   | Function | -             | Property that represents a children as a function that takes all form values  |
 
 ### WhenFieldChanges
 
@@ -74,7 +74,7 @@ The `WhenFieldChanges` component has the following props:
 | set        | string | -             | Property that represents the name of the field to change its value        |
 | to         | any    | -             | Property that represents the value to set for the field                   |
 
-### Prefix
+### Prefix
 
 The `Prefix Field API` is composed by 2 components `PrefixedFieldProvider` and `PrefixedField`:
 
