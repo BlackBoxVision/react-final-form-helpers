@@ -9,7 +9,7 @@ React Native Paper UI Wrapper for React Final Form
 - [Installation](#installation)
   - [NPM](#npm)
   - [YARN](#yarn)
-- [Example Usages](#example-usages)
+- [Example Usage](#example-usages)
 - [Component APIs](#component-apis)
 - [Issues](#issues)
 - [Contributing](#contributing)
@@ -37,9 +37,128 @@ yarn add @blackbox-vision/rff-rn-paper
 npm install --save @blackbox-vision/rff-rn-paper
 ```
 
-## Example Usages
+## Example Usage
+
+After reading and performing the previous steps, you should be able to import the library and use it like in this example:
+
+```javascript
+import React from 'react';
+import { View } from 'react-native';
+import { Form, Field } from 'react-final-form';
+import {
+  Select,
+  Switch,
+  Checkbox,
+  TextInput,
+  RadioButtonGroup,
+} from '@blackbox-vision/rff-rn-paper';
+
+const MyForm = props => (
+  <Form
+    onSubmit={values => alert(values)}
+    render={({ handleSubmit }) => (
+      <View>
+        <Field
+          component={TextInput}
+          name="firstname"
+          label="Firstname"
+          placeholder="Enter firstname"
+        />
+        <Field
+          component={TextInput}
+          name="lastname"
+          label="Lastname"
+          placeholder="Enter lastname"
+        />
+        <Field
+          component={Switch}
+          name="likeFootball"
+          labelPosition="right"
+          label="Do you like Football?"
+        />
+        <Field
+          component={Checkbox}
+          name="color"
+          labelPosition="right"
+          label="Do you like red?"
+        />
+        <Field
+          component={Select}
+          name="favoriteMeal"
+          label="Which is your favourite meal"
+          options={[
+            { label: 'pizza', value: 0 },
+            { label: 'spaghetti', value: 1 },
+          ]}
+        />
+        <Field
+          component={RadioButtonGroup}
+          name="favoriteDay"
+          label="Which is your favourite day?"
+          options={[
+            { label: 'monday', value: 0 },
+            { label: 'thursday', value: 1 },
+          ]}
+        />
+      </View>
+    )}
+  />
+);
+
+MyForm.displayName = 'MyForm';
+
+export default MyForm;
+```
 
 ## Component APIs
+
+### RadioButtonGroup
+
+The `RadioButtonGroup` component has the following props:
+
+| Properties | Types | Default Value | Description |
+| ---------- | ----- | ------------- | ----------- |
+
+
+### RadioButton
+
+The `RadioButton` component has the following props:
+
+| Properties | Types | Default Value | Description |
+| ---------- | ----- | ------------- | ----------- |
+
+
+### TextInput
+
+The `TextInput` component has the following props:
+
+| Properties | Types | Default Value | Description |
+| ---------- | ----- | ------------- | ----------- |
+
+
+### Checkbox
+
+The `Checkbox` component has the following props:
+
+| Properties | Types | Default Value | Description |
+| ---------- | ----- | ------------- | ----------- |
+
+
+### Select
+
+The `Select` component has the following props:
+
+| Properties | Types | Default Value | Description |
+| ---------- | ----- | ------------- | ----------- |
+
+
+### Switch
+
+The `Switch` component has the following props:
+
+| Properties | Types | Default Value | Description |
+| ---------- | ----- | ------------- | ----------- |
+
 
 ## Issues
 

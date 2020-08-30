@@ -89,7 +89,7 @@ export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
 RadioButtonGroup.displayName = 'RadioButtonGroup';
 RadioButtonGroup.defaultProps = {
   getHelperText: str => str,
-  labelPosition: 'left',
+  labelPosition: 'right',
   style: {},
   options: [],
   InnerLabelProps: {},
