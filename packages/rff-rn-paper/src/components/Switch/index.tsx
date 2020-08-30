@@ -7,10 +7,8 @@ import { useHasError } from '../../hooks/useHasError';
 import { BaseInputProps } from '../TextInput';
 import { Container } from '../Container';
 
-type PaperSwitchProps = React.ComponentProps<typeof PaperSwitch>;
-
 export type SwitchProps = BaseInputProps &
-  PaperSwitchProps & {
+  React.ComponentProps<typeof PaperSwitch> & {
     /**
      * Property that represents the label to show
      */

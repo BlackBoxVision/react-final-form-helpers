@@ -11,15 +11,11 @@ import { useHasError } from '../../hooks/useHasError';
 
 import { Container } from '../Container';
 
-type PaperTextProps = React.ComponentProps<typeof PaperText>;
-type PaperTextInputProps = React.ComponentProps<typeof PaperTextInput>;
-type PaperHelperTextProps = React.ComponentProps<typeof PaperHelperText>;
-
 export type BaseInputProps = FieldRenderProps<any> & {
   /**
    * Property that represents the values for the Label
    */
-  LabelProps?: PaperTextProps;
+  LabelProps?: React.ComponentProps<typeof PaperText>;
   /**
    * Property that represents the values for the View container
    */
@@ -27,11 +23,11 @@ export type BaseInputProps = FieldRenderProps<any> & {
   /**
    * Property that represents the values for the Helper Text
    */
-  HelperTextProps?: PaperHelperTextProps;
+  HelperTextProps?: React.ComponentProps<typeof PaperHelperText>;
   /**
    * Property that represents the values for the Label
    */
-  InnerLabelProps?: PaperTextProps;
+  InnerLabelProps?: React.ComponentProps<typeof PaperText>;
   /**
    * Property that represents the values for the inside View container
    */
@@ -43,7 +39,7 @@ export type BaseInputProps = FieldRenderProps<any> & {
 };
 
 export type TextInputProps = BaseInputProps &
-  PaperTextInputProps & {
+  React.ComponentProps<typeof PaperTextInput> & {
     /**
      * Property that represents the label to show
      */

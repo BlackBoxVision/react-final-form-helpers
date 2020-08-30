@@ -10,10 +10,8 @@ import { useHasError } from '../../hooks/useHasError';
 import { BaseInputProps } from '../TextInput';
 import { Container } from '../Container';
 
-type PaperCheckBoxProps = React.ComponentProps<typeof PaperCheckbox>;
-
 export type CheckboxProps = BaseInputProps &
-  PaperCheckBoxProps & {
+  React.ComponentProps<typeof PaperCheckbox> & {
     /**
      * Property that represents the label to show
      */

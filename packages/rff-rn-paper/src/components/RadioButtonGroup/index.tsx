@@ -10,13 +10,8 @@ import { useHasError } from '../../hooks/useHasError';
 import { BaseInputProps } from '../TextInput';
 import { Container } from '../Container';
 
-type PaperRadioButtonProps = React.ComponentProps<typeof PaperRadioButton>;
-type PaperRadioButtonGroupProps = React.ComponentProps<
-  typeof PaperRadioButton.Group
->;
-
 export type RadioButtonGroupProps = BaseInputProps &
-  PaperRadioButtonGroupProps & {
+  React.ComponentProps<typeof PaperRadioButton.Group> & {
     /**
      * Property that represents the label to show
      */
@@ -28,7 +23,7 @@ export type RadioButtonGroupProps = BaseInputProps &
     /**
      * Property that represents the props related to the RadioButton
      */
-    RadioButtonProps?: PaperRadioButtonProps;
+    RadioButtonProps?: React.ComponentProps<typeof PaperRadioButton>;
     /**
      * Property that represents the options to render the RadioButtonGroup
      */
