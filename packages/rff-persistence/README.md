@@ -11,6 +11,8 @@ React Final Form persistence layer with LocalForage
   - [YARN](#yarn)
 - [Example Usages](#example-usages)
 - [Component APIs](#component-apis)
+  - [FinalFormPersist](#finalformpersist)
+  - [Storage](#storage)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
