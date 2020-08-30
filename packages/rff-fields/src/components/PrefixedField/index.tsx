@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { Field, FieldProps } from 'react-final-form';
 
-export interface FieldPrefixProps {
-  prefix: string;
-  children: any;
-}
-
 const FieldPrefixContext = React.createContext<string>(null);
 
-export const FieldPrefix: React.FunctionComponent<FieldPrefixProps> = ({
+export type FieldPrefixProviderProps = {
+  /**
+   * Property that represents the prefix to use for the fields
+   */
+  prefix: string;
+};
+
+export const FieldPrefixProvider: React.FC<FieldPrefixProviderProps> = ({
   prefix,
   children,
 }) => (
@@ -17,13 +19,9 @@ export const FieldPrefix: React.FunctionComponent<FieldPrefixProps> = ({
   </FieldPrefixContext.Provider>
 );
 
-FieldPrefix.displayName = 'FieldPrefix';
+FieldPrefixProvider.displayName = 'FieldPrefixProvider';
 
-export interface PrefixedFieldProps extends FieldProps<any, any> {
-  name: string;
-}
-
-export const PrefixedField: React.FunctionComponent<PrefixedFieldProps> = ({
+export const PrefixedField: React.FunctionComponent<FieldProps<any, any>> = ({
   name,
   ...props
 }) => {

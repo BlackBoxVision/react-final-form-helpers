@@ -1,10 +1,16 @@
 import React from 'react';
 import { Field } from 'react-final-form';
 
-export interface ConditionalFieldProps {
+export type ConditionalFieldProps = {
+  /**
+   * Property that represents the name of the field to watch
+   */
   when: string;
+  /**
+   * Property that represents the value needed to reach the condition
+   */
   is: any;
-}
+};
 
 export const ConditionalField: React.FC<ConditionalFieldProps> = ({
   when,
