@@ -125,9 +125,9 @@ All the components have the following base props:
 
 | Properties      | Types                                                                              | Default Value | Description                                                                    |
 | --------------- | ---------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------ |
-| ContainerProps  | [ViewProps](https://reactnative.dev/docs/view#props)                               | {}            | Property that represents the values for the View container                     |
-| LabelProps      | [TextProps](https://callstack.github.io/react-native-paper/text.html)              | {}            | Property that represents the values for the Label                              |
-| HelperTextProps | [HelperTextProps](https://callstack.github.io/react-native-paper/helper-text.html) | {}            | Property that represents the values for the Helper Text                        |
+| ContainerProps  | [ViewProps](https://reactnative.dev/docs/view#props)                               | -             | Property that represents the values for the View container                     |
+| LabelProps      | [TextProps](https://callstack.github.io/react-native-paper/text.html)              | -             | Property that represents the values for the Label                              |
+| HelperTextProps | [HelperTextProps](https://callstack.github.io/react-native-paper/helper-text.html) | -             | Property that represents the values for the Helper Text                        |
 | getHelperText   | Function                                                                           | -             | Property that represents a function to get a message to show in the HelperText |
 
 ### RadioButtonGroup
@@ -136,9 +136,9 @@ The `RadioButtonGroup` component has the following props:
 
 | Properties          | Types                                                                                | Default Value | Description                                                         |
 | ------------------- | ------------------------------------------------------------------------------------ | ------------- | ------------------------------------------------------------------- |
-| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props)                                 | {}            | Property that represents the values for the inside View container   |
-| InnerLabelProps     | [ViewProps](https://reactnative.dev/docs/view#props)                                 | {}            | Property that represents the values for the Label                   |
-| RadioButtonProps    | [RadioButtonProps](https://callstack.github.io/react-native-paper/radio-button.html) | {}            | Property that represents the props related to the RadioButton       |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props)                                 | -             | Property that represents the values for the inside View container   |
+| InnerLabelProps     | [ViewProps](https://reactnative.dev/docs/view#props)                                 | -             | Property that represents the values for the Label                   |
+| RadioButtonProps    | [RadioButtonProps](https://callstack.github.io/react-native-paper/radio-button.html) | -             | Property that represents the props related to the RadioButton       |
 | labelPosition       | string                                                                               | right         | Property that represents the position of the label                  |
 | label               | string                                                                               | -             | Property that represents the label to show                          |
 | options             | Array                                                                                | -             | Property that represents the options to render the RadioButtonGroup |
@@ -151,7 +151,7 @@ The `RadioButton` component has the following props:
 
 | Properties          | Types                                                | Default Value | Description                                                       |
 | ------------------- | ---------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
-| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | {}            | Property that represents the values for the inside View container |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | -             | Property that represents the values for the inside View container |
 | labelPosition       | string                                               | right         | Property that represents the position of the label                |
 | label               | string                                               | -             | Property that represents the label to show                        |
 
@@ -173,7 +173,7 @@ The `Checkbox` component has the following props:
 
 | Properties          | Types                                                | Default Value | Description                                                       |
 | ------------------- | ---------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
-| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | {}            | Property that represents the values for the inside View container |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | -             | Property that represents the values for the inside View container |
 | labelPosition       | string                                               | right         | Property that represents the position of the label                |
 | label               | string                                               | -             | Property that represents the label to show                        |
 
@@ -197,7 +197,7 @@ The `Switch` component has the following props:
 
 | Properties          | Types                                                | Default Value | Description                                                       |
 | ------------------- | ---------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
-| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | {}            | Property that represents the values for the inside View container |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | -             | Property that represents the values for the inside View container |
 | labelPosition       | string                                               | right         | Property that represents the position of the label                |
 | label               | string                                               | -             | Property that represents the label to show                        |
 
