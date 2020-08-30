@@ -123,39 +123,39 @@ export default MyForm;
 
 All the components have the following base props:
 
-| Properties      | Types    | Default Value | Description                                                                    |
-| --------------- | -------- | ------------- | ------------------------------------------------------------------------------ |
-| ContainerProps  | Object   | {}            | Property that represents the values for the View container                     |
-| LabelProps      | Object   | {}            | Property that represents the values for the Label                              |
-| HelperTextProps | Object   | {}            | Property that represents the values for the Helper Text                        |
-| getHelperText   | Function | -             | Property that represents a function to get a message to show in the HelperText |
+| Properties      | Types                                                                              | Default Value | Description                                                                    |
+| --------------- | ---------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------ |
+| ContainerProps  | [ViewProps](https://reactnative.dev/docs/view#props)                               | {}            | Property that represents the values for the View container                     |
+| LabelProps      | [TextProps](https://callstack.github.io/react-native-paper/text.html)              | {}            | Property that represents the values for the Label                              |
+| HelperTextProps | [HelperTextProps](https://callstack.github.io/react-native-paper/helper-text.html) | {}            | Property that represents the values for the Helper Text                        |
+| getHelperText   | Function                                                                           | -             | Property that represents a function to get a message to show in the HelperText |
 
 ### RadioButtonGroup
 
 The `RadioButtonGroup` component has the following props:
 
-| Properties          | Types  | Default Value | Description                                                         |
-| ------------------- | ------ | ------------- | ------------------------------------------------------------------- |
-| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container   |
-| InnerLabelProps     | Object | {}            | Property that represents the values for the Label                   |
-| RadioButtonProps    | Object | {}            | Property that represents the props related to the RadioButton       |
-| labelPosition       | string | right         | Property that represents the position of the label                  |
-| label               | string | -             | Property that represents the label to show                          |
-| options             | Array  | -             | Property that represents the options to render the RadioButtonGroup |
+| Properties          | Types                                                                                | Default Value | Description                                                         |
+| ------------------- | ------------------------------------------------------------------------------------ | ------------- | ------------------------------------------------------------------- |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props)                                 | {}            | Property that represents the values for the inside View container   |
+| InnerLabelProps     | [ViewProps](https://reactnative.dev/docs/view#props)                                 | {}            | Property that represents the values for the Label                   |
+| RadioButtonProps    | [RadioButtonProps](https://callstack.github.io/react-native-paper/radio-button.html) | {}            | Property that represents the props related to the RadioButton       |
+| labelPosition       | string                                                                               | right         | Property that represents the position of the label                  |
+| label               | string                                                                               | -             | Property that represents the label to show                          |
+| options             | Array                                                                                | -             | Property that represents the options to render the RadioButtonGroup |
 
-The `RadioButtonGroup` also inherits its own props from `react-native-paper`.
+The `RadioButtonGroup` also inherits its own props from [`react-native-paper`](https://callstack.github.io/react-native-paper/radio-button-group.html).
 
 ### RadioButton
 
 The `RadioButton` component has the following props:
 
-| Properties          | Types  | Default Value | Description                                                       |
-| ------------------- | ------ | ------------- | ----------------------------------------------------------------- |
-| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container |
-| labelPosition       | string | right         | Property that represents the position of the label                |
-| label               | string | -             | Property that represents the label to show                        |
+| Properties          | Types                                                | Default Value | Description                                                       |
+| ------------------- | ---------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | {}            | Property that represents the values for the inside View container |
+| labelPosition       | string                                               | right         | Property that represents the position of the label                |
+| label               | string                                               | -             | Property that represents the label to show                        |
 
-The `RadioButton` also inherits its own props from `react-native-paper`.
+The `RadioButton` also inherits its own props from [`react-native-paper`](https://callstack.github.io/react-native-paper/radio-button.html).
 
 ### TextInput
 
@@ -165,19 +165,19 @@ The `TextInput` component has the following props:
 | ---------- | ------ | ------------- | ------------------------------------------ |
 | label      | string | -             | Property that represents the label to show |
 
-The `TextInput` also inherits its own props from `react-native-paper`.
+The `TextInput` also inherits its own props from [`react-native-paper`](https://callstack.github.io/react-native-paper/text-input.html).
 
 ### Checkbox
 
 The `Checkbox` component has the following props:
 
-| Properties          | Types  | Default Value | Description                                                       |
-| ------------------- | ------ | ------------- | ----------------------------------------------------------------- |
-| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container |
-| labelPosition       | string | right         | Property that represents the position of the label                |
-| label               | string | -             | Property that represents the label to show                        |
+| Properties          | Types                                                | Default Value | Description                                                       |
+| ------------------- | ---------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | {}            | Property that represents the values for the inside View container |
+| labelPosition       | string                                               | right         | Property that represents the position of the label                |
+| label               | string                                               | -             | Property that represents the label to show                        |
 
-The `Checkbox` also inherits its own props from `react-native-paper`.
+The `Checkbox` also inherits its own props from [`react-native-paper`](https://callstack.github.io/react-native-paper/checkbox.html).
 
 ### Select
 
@@ -189,19 +189,19 @@ The `Select` component has the following props:
 | label         | string | -             | Property that represents the label to show                          |
 | options       | Array  | -             | Property that represents the options to render the RadioButtonGroup |
 
-The `Select` also inherits its own props from `react-native-paper`.
+The `Select` also inherits its own props from [`react-native`](https://reactnative.dev/docs/picker#props).
 
 ### Switch
 
 The `Switch` component has the following props:
 
-| Properties          | Types  | Default Value | Description                                                       |
-| ------------------- | ------ | ------------- | ----------------------------------------------------------------- |
-| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container |
-| labelPosition       | string | right         | Property that represents the position of the label                |
-| label               | string | -             | Property that represents the label to show                        |
+| Properties          | Types                                                | Default Value | Description                                                       |
+| ------------------- | ---------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| InnerContainerProps | [ViewProps](https://reactnative.dev/docs/view#props) | {}            | Property that represents the values for the inside View container |
+| labelPosition       | string                                               | right         | Property that represents the position of the label                |
+| label               | string                                               | -             | Property that represents the label to show                        |
 
-The `Switch` also inherits its own props from `react-native-paper`.
+The `Switch` also inherits its own props from [`react-native-paper`](https://callstack.github.io/react-native-paper/switch.html).
 
 ## Issues
 
