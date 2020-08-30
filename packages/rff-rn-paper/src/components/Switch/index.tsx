@@ -67,7 +67,7 @@ Switch.displayName = 'Switch';
 Switch.defaultProps = {
   getHelperText: str => str,
   style: {},
-  labelPosition: 'left',
+  labelPosition: 'right',
   InnerContainerProps: {},
   LabelProps: {},
   ContainerProps: {},

@@ -84,7 +84,7 @@ const MyForm = props => (
         />
         <Field
           component={Select}
-          name="favoriteMeal"
+          name="favouriteMeal"
           label="Which is your favourite meal"
           options={[
             { label: 'pizza', value: 0 },
@@ -93,7 +93,7 @@ const MyForm = props => (
         />
         <Field
           component={RadioButtonGroup}
-          name="favoriteDay"
+          name="favouriteDay"
           label="Which is your favourite day?"
           options={[
             { label: 'monday', value: 0 },
@@ -112,53 +112,89 @@ export default MyForm;
 
 ## Component APIs
 
+### Common Props
+
+All the components have the following base props:
+
+| Properties      | Types    | Default Value | Description                                                                    |
+| --------------- | -------- | ------------- | ------------------------------------------------------------------------------ |
+| ContainerProps  | Object   | {}            | Property that represents the values for the View container                     |
+| LabelProps      | Object   | {}            | Property that represents the values for the Label                              |
+| HelperTextProps | Object   | {}            | Property that represents the values for the Helper Text                        |
+| getHelperText   | Function | -             | Property that represents a function to get a message to show in the HelperText |
+
 ### RadioButtonGroup
 
 The `RadioButtonGroup` component has the following props:
 
-| Properties | Types | Default Value | Description |
-| ---------- | ----- | ------------- | ----------- |
+| Properties          | Types  | Default Value | Description                                                         |
+| ------------------- | ------ | ------------- | ------------------------------------------------------------------- |
+| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container   |
+| InnerLabelProps     | Object | {}            | Property that represents the values for the Label                   |
+| RadioButtonProps    | Object | {}            | Property that represents the props related to the RadioButton       |
+| labelPosition       | string | right         | Property that represents the position of the label                  |
+| label               | string | -             | Property that represents the label to show                          |
+| options             | Array  | -             | Property that represents the options to render the RadioButtonGroup |
 
+The `RadioButtonGroup` also inherits its own props from `react-native-paper`.
 
 ### RadioButton
 
 The `RadioButton` component has the following props:
 
-| Properties | Types | Default Value | Description |
-| ---------- | ----- | ------------- | ----------- |
+| Properties          | Types  | Default Value | Description                                                       |
+| ------------------- | ------ | ------------- | ----------------------------------------------------------------- |
+| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container |
+| labelPosition       | string | right         | Property that represents the position of the label                |
+| label               | string | -             | Property that represents the label to show                        |
 
+The `RadioButton` also inherits its own props from `react-native-paper`.
 
 ### TextInput
 
 The `TextInput` component has the following props:
 
-| Properties | Types | Default Value | Description |
-| ---------- | ----- | ------------- | ----------- |
+| Properties | Types  | Default Value | Description                                |
+| ---------- | ------ | ------------- | ------------------------------------------ |
+| label      | string | -             | Property that represents the label to show |
 
+The `TextInput` also inherits its own props from `react-native-paper`.
 
 ### Checkbox
 
 The `Checkbox` component has the following props:
 
-| Properties | Types | Default Value | Description |
-| ---------- | ----- | ------------- | ----------- |
+| Properties          | Types  | Default Value | Description                                                       |
+| ------------------- | ------ | ------------- | ----------------------------------------------------------------- |
+| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container |
+| labelPosition       | string | right         | Property that represents the position of the label                |
+| label               | string | -             | Property that represents the label to show                        |
 
+The `Checkbox` also inherits its own props from `react-native-paper`.
 
 ### Select
 
 The `Select` component has the following props:
 
-| Properties | Types | Default Value | Description |
-| ---------- | ----- | ------------- | ----------- |
+| Properties    | Types  | Default Value | Description                                                         |
+| ------------- | ------ | ------------- | ------------------------------------------------------------------- |
+| labelPosition | string | right         | Property that represents the position of the label                  |
+| label         | string | -             | Property that represents the label to show                          |
+| options       | Array  | -             | Property that represents the options to render the RadioButtonGroup |
 
+The `Select` also inherits its own props from `react-native-paper`.
 
 ### Switch
 
 The `Switch` component has the following props:
 
-| Properties | Types | Default Value | Description |
-| ---------- | ----- | ------------- | ----------- |
+| Properties          | Types  | Default Value | Description                                                       |
+| ------------------- | ------ | ------------- | ----------------------------------------------------------------- |
+| InnerContainerProps | Object | {}            | Property that represents the values for the inside View container |
+| labelPosition       | string | right         | Property that represents the position of the label                |
+| label               | string | -             | Property that represents the label to show                        |
 
+The `Switch` also inherits its own props from `react-native-paper`.
 
 ## Issues
 

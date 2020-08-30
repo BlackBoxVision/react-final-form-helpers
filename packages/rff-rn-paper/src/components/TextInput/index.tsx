@@ -42,7 +42,13 @@ export type BaseInputProps = FieldRenderProps<any> & {
   getHelperText?: (errorKeyOrText?: string) => string;
 };
 
-export type TextInputProps = BaseInputProps & PaperTextInputProps;
+export type TextInputProps = BaseInputProps &
+  PaperTextInputProps & {
+    /**
+     * Property that represents the label to show
+     */
+    label?: string;
+  };
 
 export const TextInput: React.FC<TextInputProps> = ({
   input: { onChange, onFocus, onBlur, value, ...InputProps },
