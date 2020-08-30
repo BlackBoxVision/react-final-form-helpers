@@ -14,7 +14,7 @@ React Final Form Custom Fieds
   - [ConditionalField](#conditionalfield)
   - [DependentField](#dependentfield)
   - [WhenFieldChanges](#whenfieldchanges)
-  - [Prefxi](#prefix)
+  - [Prefix](#prefix)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
