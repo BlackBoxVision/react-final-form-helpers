@@ -11,6 +11,8 @@ React Final Form Wizard Pattern
   - [YARN](#yarn)
 - [Example Usages](#example-usages)
 - [Component APIs](#component-apis)
+  - [WizardForm](#wizardform)
+  - [WizardPage](#wizardpage)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
