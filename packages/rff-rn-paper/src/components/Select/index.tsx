@@ -1,6 +1,6 @@
 import React from 'react';
-import { Picker } from 'react-native';
 import { Text as PaperText } from 'react-native-paper';
+import { Picker } from '@react-native-community/picker';
 
 import { useHasError } from '../../hooks/useHasError';
 
@@ -47,7 +47,11 @@ export const Select: React.FC<SelectProps> = ({
       }}
     >
       <PaperText {...LabelProps}>{label}</PaperText>
-      <Picker {...SelectProps} selectedValue={value} onValueChange={onChange}>
+      <Picker
+        {...SelectProps}
+        selectedValue={value}
+        onValueChange={value => onChange(value)}
+      >
         {options &&
           options.map(({ label, value }) => (
             <Picker.Item label={label} value={value} />
