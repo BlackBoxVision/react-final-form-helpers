@@ -54,6 +54,7 @@ const MyFormLayout = ({
   isLastPage,
   submitting,
   children,
+  values,
   onNext,
   onBack,
 }) => (
@@ -66,7 +67,7 @@ const MyFormLayout = ({
           « Previous
         </button>
       )}
-      {!isLastPage && <button onClick={onNext}>Next »</button>}
+      {!isLastPage && <button onClick={() => onNext(values)}>Next »</button>}
       {isLastPage && (
         <button type="submit" disabled={submitting}>
           Submit
@@ -91,7 +92,7 @@ import { WizardForm, WizardPage } from '@blackbox-vision/rff-wizard';
 import MyFormLayout from './MyFormLayout';
 
 const MyWizardForm = props => (
-  <WizardForm layout={MyFormLayout} onSubmit={values => alert(values)}>
+  <WizardForm layout={MyFormLayout} onSubmit={values => alert(JSON.stringify(values, null, 2))}>
     <WizardPage>
       <Field
         type="text"
