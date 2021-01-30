@@ -1,0 +1,8 @@
+pkg
+build
+coverage
+node_modules
+examples/**/node_modules
+.idea/
+.out
+storybook-static
