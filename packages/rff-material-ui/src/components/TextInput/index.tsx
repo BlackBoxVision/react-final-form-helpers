@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { FieldRenderProps } from 'react-final-form';
-import { TextField } from '@material-ui/core';
+import { TextField, TextFieldProps } from '@material-ui/core';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export type TextInputProps = FieldRenderProps<string, any>;
+export type TextInputProps = FieldRenderProps<any> & TextFieldProps;
 
 export const TextInput: FC<TextInputProps> = ({
   name,
@@ -12,6 +12,7 @@ export const TextInput: FC<TextInputProps> = ({
   variant,
   input,
   meta,
+  helperText,
   ...rest
 }) => {
   const isError = useHasError(meta);
@@ -25,7 +26,7 @@ export const TextInput: FC<TextInputProps> = ({
       name={input.name}
       value={input.value}
       onChange={input.onChange}
-      helperText={isError && meta.error}
+      helperText={isError && (helperText ? helperText : meta.error)}
     />
   );
 };

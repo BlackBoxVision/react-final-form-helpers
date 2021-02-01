@@ -9,6 +9,7 @@ Material UI Wrapper for React Final Form
   - [NPM](#npm)
   - [YARN](#yarn)
 - [Example Usage](#example-usages)
+- [Storybook](#storybook)
 - [Component APIs](#component-apis)
   - [TextInput](#textinput)
 - [Issues](#issues)
@@ -71,6 +72,9 @@ MyForm.displayName = 'MyForm';
 
 export default MyForm;
 ```
+## Storybook
+
+You can run a playground to test components locally. To do this, run the `npm run storybook` command. Once Storybook server is started, open a browser tab and go to **http://localhost:6006/** to start.
 
 ## Component APIs
 ### TextInput
