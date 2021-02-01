@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
-import { FieldRenderProps } from 'react-final-form';
+import { FieldProps } from 'react-final-form';
 import { TextField, TextFieldProps } from '@material-ui/core';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export type TextInputProps = FieldRenderProps<any> & TextFieldProps;
+export type TextInputProps = Partial<TextFieldProps> &
+  Partial<FieldProps<any, any>> & {
+    variant: 'filled' | 'standard' | 'outlined' | any;
+  };
 
 export const TextInput: FC<TextInputProps> = ({
   name,
