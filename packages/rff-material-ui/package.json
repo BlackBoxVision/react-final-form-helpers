@@ -35,7 +35,8 @@
     "publish": "pika publish",
     "build": "npm run clean && pika build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "version": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/BlackBoxVision/react-final-form-helpers/issues"
