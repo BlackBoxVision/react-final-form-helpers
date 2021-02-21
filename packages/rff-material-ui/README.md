@@ -13,6 +13,7 @@ Material UI Wrapper for React Final Form
 - [Storybook](#storybook)
 - [Component APIs](#component-apis)
   - [TextInput](#textinput)
+  - [Select](#select)
   - [Checkbox](#checkbox)
   - [RadioGroup](#radiogroup)
 - [Issues](#issues)
@@ -93,6 +94,19 @@ The `TextInput` component has the following props:
 | variant    | string | "standard"    | No       | Property that represents the variant of text input      |
 
 The `TextInput` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/text-field/#props).
+
+### Select
+
+The `Select` component has the following props:
+
+| Properties | Types  | Default Value | Required | Description                                        |
+| ---------- | ------ | ------------- | -------- | -------------------------------------------------- |
+| name       | string | -             | Yes      | Property that represents the name of input         |
+| label      | string | -             | No       | Property that represents the label to show         |
+| variant    | string | "standard"    | No       | Property that represents the variant of text input |
+| options    | array  | -             | Yes      | Property that represents the options to choose     |
+
+The `Select` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/select/#props).
 
 ### Checkbox
 
