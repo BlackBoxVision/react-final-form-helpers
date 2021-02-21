@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
-import { FieldProps } from 'react-final-form';
+import { FieldRenderProps } from 'react-final-form';
 import {
   Select as MuiSelect,
   SelectProps as MuiSelectProps,
   MenuItem,
   FormHelperText,
   FormControl,
-  InputLabel
+  InputLabel,
 } from '@material-ui/core';
 
 import { useHasError } from '../../hooks/useHasError';
 
 export type SelectProps = Partial<MuiSelectProps> &
-  Partial<FieldProps<any, any>> & {
+  FieldRenderProps<any> & {
     variant: 'filled' | 'standard' | 'outlined' | any;
   };
 
@@ -46,7 +46,11 @@ export const Select: FC<SelectProps> = ({
             <MenuItem value={opt.value}>{opt.label}</MenuItem>
           ))}
       </MuiSelect>
-      {isError && <FormHelperText error={isError}>{helperText || meta.error}</FormHelperText>}
+      {isError && (
+        <FormHelperText error={isError}>
+          {helperText || meta.error}
+        </FormHelperText>
+      )}
     </FormControl>
   );
 };
