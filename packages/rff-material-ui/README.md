@@ -12,6 +12,7 @@ Material UI Wrapper for React Final Form
 - [Storybook](#storybook)
 - [Component APIs](#component-apis)
   - [TextInput](#textinput)
+  - [Checkbox](#checkbox)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -81,13 +82,26 @@ You can run a playground to test components locally. To do this, run the `npm ru
 
 The `TextInput` component has the following props:
 
-| Properties | Types  | Default Value | Required | Description                                          |
-| ---------- | ------ | ------------- | -------- | ---------------------------------------------------- |
-| name       | string | -             |   Yes    |  Property that represents the name of input          |
-| label      | string | -             |   No     |  Property that represents the label to show          |
-| variant    | string | "standard"    |   No     |  Property that represents the variant of text input  |
+| Properties | Types  | Default Value | Required | Description                                              |
+| ---------- | ------ | ------------- | -------- | -------------------------------------------------------- |
+| name       | string | -             |   Yes    |  Property that represents the name of input              |
+| label      | string | -             |   No     |  Property that represents the label to show              |
+| classes    | object | -             |   No     |  Override or extend the styles applied to the component. |
+| variant    | string | "standard"    |   No     |  Property that represents the variant of text input      |
 
 The `TextInput` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/text-field/#props).
+### Checkbox
+
+The `Checkbox` component has the following props:
+
+| Properties | Types  | Default Value | Required | Description                                              |
+| ---------- | ------ | ------------- | -------- | -------------------------------------------------------- |
+| name       | string | -             |   Yes    |  Property that represents the name of input              |
+| label      | string | -             |   No     |  Property that represents the label to show              |
+| classes    | object | -             |   No     |  Override or extend the styles applied to the component. |
+| icon       | node   | "standard"    |   No     |  The icon to display when the component is unchecked.    |
+
+The `Checkbox` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/checkbox/#props).
 
 ## Issues
 
