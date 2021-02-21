@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { FieldProps } from 'react-final-form';
 import {
   Radio,
   RadioGroup as MuiRadioGroup,
@@ -6,11 +7,15 @@ import {
   FormControl,
   FormLabel,
   FormHelperText,
+  RadioGroupProps as MuiRadioGroupProps
 } from '@material-ui/core';
 
 import { useHasError } from '../../hooks/useHasError';
 
-export const RadioGroup = ({
+export type RadioGroupProps = Partial<MuiRadioGroupProps> &
+  Partial<FieldProps<any, any>>;
+
+export const RadioGroup: FC<RadioGroupProps> = ({
   name,
   label,
   input,
@@ -18,7 +23,7 @@ export const RadioGroup = ({
   helperText,
   FormLabelProps,
   FormHelperTextProps,
-  options,
+  options = [],
 }) => {
   const isError = useHasError(meta);
 
