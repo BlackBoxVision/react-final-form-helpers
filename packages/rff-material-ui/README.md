@@ -12,6 +12,7 @@ Material UI Wrapper for React Final Form
 - [Storybook](#storybook)
 - [Component APIs](#component-apis)
   - [TextInput](#textinput)
+  - [RadioGroup](#radiogroup)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -55,8 +56,8 @@ const MyForm = (props: any) => (
       <form onSubmit={handleSubmit}>
         <Field
           {...args}
-          name={args.name}
-          variant={args.variant}
+          name="email"
+          variant="filled"
           component={TextInput}
           validate={(value) => (value ? undefined : 'Required')}
         />
@@ -81,13 +82,24 @@ You can run a playground to test components locally. To do this, run the `npm ru
 
 The `TextInput` component has the following props:
 
-| Properties | Types  | Default Value | Required | Description                                          |
-| ---------- | ------ | ------------- | -------- | ---------------------------------------------------- |
-| name       | string | -             |   Yes    |  Property that represents the name of input          |
-| label      | string | -             |   No     |  Property that represents the label to show          |
-| variant    | string | "standard"    |   No     |  Property that represents the variant of text input  |
+| Properties | Types  | Default Value | Required | Description                                                  |
+| ---------- | ------ | ------------- | -------- | ------------------------------------------------------------ |
+| name       | string | -             |   Yes    |  Property that represents the name of input                  |
+| label      | string | -             |   No     |  Property that represents the label to show                  |
+| variant    | string | "standard"    |   No     |  Property that represents the variant of text input          |
 
 The `TextInput` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/text-field/#props).
+### RadioGroup
+
+The `RadioGroup` component has the following props:
+
+| Properties | Types  | Default Value | Required | Description                                                  |
+| ---------- | ------ | ------------- | -------- | ------------------------------------------------------------ |
+| name       | string | -             |   Yes    |  Property that represents the name of input                  |
+| label      | string | -             |   No     |  Property that represents the label to show                  |
+| options    | array  |       []      |   No     |  Property that represents the options of radio buttons group |
+
+The `RadioGroup` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/radio-group/#props).
 
 ## Issues
 
