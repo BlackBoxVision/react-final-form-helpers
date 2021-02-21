@@ -7,3 +7,4 @@ examples/**/node_modules
 .idea/
 .out
 storybook-static
+.DS_Store
