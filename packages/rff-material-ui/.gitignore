@@ -3,6 +3,8 @@ build
 coverage
 node_modules
 examples/**/node_modules
+.DS_Store
 .idea/
 .out
 storybook-static
+.DS_Store
