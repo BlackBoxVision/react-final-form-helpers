@@ -7,37 +7,45 @@ import {
   FormHelperText,
   FormControl,
   InputLabel,
+  InputLabelProps,
+  FormControlProps,
 } from '@material-ui/core';
 
 import { useHasError } from '../../hooks/useHasError';
+import { useStyles } from './styles';
 
 export type SelectProps = Partial<MuiSelectProps> &
   FieldRenderProps<any> & {
     variant: 'filled' | 'standard' | 'outlined' | any;
+    InputLabelProps?: Partial<InputLabelProps>;
+    FormControlProps?: Partial<FormControlProps>;
   };
 
 export const Select: FC<SelectProps> = ({
   name,
   label,
-  variant,
   input,
   meta,
   helperText,
   options,
-  ...rest
+  InputLabelProps,
+  FormControlProps,
+  ...SelectProps
 }) => {
+  const styles = useStyles();
   const isError = useHasError(meta);
 
   return (
-    <FormControl>
-      <InputLabel htmlFor={name}>{label}</InputLabel>
+    <FormControl {...FormControlProps} className={styles.formControl}>
+      <InputLabel {...InputLabelProps} htmlFor={name}>
+        {label}
+      </InputLabel>
       <MuiSelect
-        {...rest}
+        {...SelectProps}
         id={name}
         name={name}
         error={isError}
         label={label}
-        variant={variant}
         onChange={input.onChange}
       >
         {Array.isArray(options) &&
@@ -55,4 +63,8 @@ export const Select: FC<SelectProps> = ({
   );
 };
 
-Select.displayName = 'Select';
+Select.defaultProps = {
+  FormControlProps: {
+    variant: 'standard',
+  },
+};

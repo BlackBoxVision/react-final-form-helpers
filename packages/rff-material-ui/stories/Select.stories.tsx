@@ -33,7 +33,6 @@ const Template: Story<ComponentProps<typeof Select>> = (args) => (
           options={args.options}
           component={Select}
           validate={(value) => (value ? undefined : 'Required field')}
-          style={{ width: 200 }}
         />
         <button type="submit" style={{ marginLeft: 16 }}>
           Send
