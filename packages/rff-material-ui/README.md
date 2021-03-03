@@ -133,6 +133,17 @@ The `RadioGroup` component has the following props:
 
 The `RadioGroup` also **inherits its own props** from [`material-ui`](https://material-ui.com/api/radio-group/#props).
 
+### DatePicker
+
+The `DatePicker` component has the following props:
+
+| Properties | Types  | Default Value | Required | Description                                |
+| ---------- | ------ | ------------- | -------- | ------------------------------------------ |
+| name       | string | -             | Yes      | Property that represents the name of input |
+| label      | string | -             | No       | Property that represents the label to show |
+
+The `DatePicker` also **inherits its own props** from [`material-ui-pickers`](https://material-ui-pickers.dev/api/DatePicker).
+
 ## Issues
 
 Please, open an [issue](https://github.com/BlackBoxVision/react-final-form-helpers/issues) following one of the issues templates. We will do our best to fix them.
