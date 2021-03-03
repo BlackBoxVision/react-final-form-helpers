@@ -1,12 +1,12 @@
 import 'date-fns';
 
-import { ComponentProps } from 'react';
-import { Form, Field } from 'react-final-form';
-import { Story } from '@storybook/react';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import { esES } from '@material-ui/core/locale';
+import esLocale from 'date-fns/locale/es';
 
+import { ComponentProps } from 'react';
+import { Story } from '@storybook/react';
+import DateFnsUtils from '@date-io/date-fns';
+import { Form, Field } from 'react-final-form';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import { Datepicker } from '../src';
 
@@ -20,7 +20,7 @@ const onSubmit = async (values) =>
   window.alert(JSON.stringify(values, null, 2));
 
 const Template: Story<ComponentProps<typeof Datepicker>> = (args) => (
-  <MuiPickersUtilsProvider locale={esES} utils={DateFnsUtils}>
+  <MuiPickersUtilsProvider locale={esLocale} utils={DateFnsUtils}>
     <Form
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
@@ -45,8 +45,12 @@ export const SimpleExample = Template.bind({});
 
 SimpleExample.args = {
   name: 'date',
-  label: 'Date',
-  variant: "inline",
-  inputVariant: "filled",
-  placeholder: 'dd/mm/yyyy'
+  label: 'Fecha',
+  variant: 'inline',
+  margin: 'normal',
+  inputVariant: 'filled',
+  mask: '__/__/____',
+  formatDate: 'dd/MM/yyyy',
+  placeholder: 'dd/mm/yyyy',
+  initialFocusedDate: new Date(),
 };
