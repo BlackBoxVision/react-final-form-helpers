@@ -43,7 +43,7 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^4.11.3",
-    "react": "^17.0.1",
+    "react": "^16.8.0",
     "final-form": "^4.20.1",
     "react-final-form": "^6.5.2",
     "@material-ui/pickers": "^3.2.9",
