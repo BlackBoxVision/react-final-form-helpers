@@ -31,15 +31,15 @@ export const RadioGroup: FC<RadioGroupProps> = ({
     <FormControl component="fieldset">
       {!!label && <FormLabel {...FormLabelProps}>{label}</FormLabel>}
       <MuiRadioGroup
+        {...input}
         aria-label={name}
         name={name}
-        value={input.value}
-        onChange={input.onChange}
       >
         {Array.isArray(options) &&
           options.length > 0 &&
-          options.map((opt) => (
+          options.map((opt, idx) => (
             <FormControlLabel
+              key={`radiogroup_option_${idx}`}
               value={opt.value}
               control={<Radio />}
               label={opt.label}

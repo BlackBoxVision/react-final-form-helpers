@@ -29,8 +29,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         control={
           <MuiCheckbox
             {...rest}
-            checked={input.checkedB}
-            onChange={input.onChange}
+            {...input}
           />
         }
         label={label}

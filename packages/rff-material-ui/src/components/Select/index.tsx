@@ -41,17 +41,17 @@ export const Select: FC<SelectProps> = ({
         {label}
       </InputLabel>
       <MuiSelect
+        {...input}
         {...SelectProps}
         id={name}
         name={name}
         error={isError}
         label={label}
-        onChange={input.onChange}
       >
         {Array.isArray(options) &&
           options.length > 0 &&
-          options.map((opt) => (
-            <MenuItem value={opt.value}>{opt.label}</MenuItem>
+          options.map((opt, idx) => (
+            <MenuItem key={`select_option_${idx}`} value={opt.value}>{opt.label}</MenuItem>
           ))}
       </MuiSelect>
       {isError && (

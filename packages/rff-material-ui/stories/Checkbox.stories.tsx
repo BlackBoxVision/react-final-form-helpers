@@ -37,4 +37,5 @@ export const SimpleExample = Template.bind({});
 SimpleExample.args = {
   name: 'required',
   label: 'Required',
+  type: 'checkbox'
 };

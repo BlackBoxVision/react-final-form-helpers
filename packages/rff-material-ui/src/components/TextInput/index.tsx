@@ -23,12 +23,10 @@ export const TextInput: FC<TextInputProps> = ({
   return (
     <TextField
       {...rest}
+      {...input}
       error={isError}
       label={label}
       variant={variant}
-      name={input.name}
-      value={input.value}
-      onChange={input.onChange}
       helperText={isError && (helperText ? helperText : meta.error)}
     />
   );
