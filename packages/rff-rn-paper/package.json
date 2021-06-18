@@ -63,11 +63,11 @@
     "typescript": "^3.9.7"
   },
   "peerDependencies": {
-    "react": "^16.11.0",
-    "react-native": "^0.61.2",
-    "react-native-paper": "^3.0.0",
+    "@react-native-community/picker": "^1.8.0",
     "final-form": "^4.18.5",
+    "react": "^16.11.0",
     "react-final-form": "^6.3.0",
-    "@react-native-community/picker": "^1.8.0"
+    "react-native": "^0.61.2",
+    "react-native-paper": "^3.0.0"
   }
 }

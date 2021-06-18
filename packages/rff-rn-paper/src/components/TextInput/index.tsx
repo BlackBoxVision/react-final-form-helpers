@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ViewProps } from 'react-native';
 import {
   Text as PaperText,
@@ -44,19 +44,40 @@ export type TextInputProps = BaseInputProps &
      * Property that represents the label to show
      */
     label?: string;
+    /**
+     * Property that represents if show or hide the password text
+     */
+    secureTextEntry?: string;
+    /**
+    * Property that represents the input styles
+    */
+    style?: any;
   };
 
-export const TextInput: React.FC<TextInputProps> = ({
+export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
   input: { onChange, onFocus, onBlur, value, ...InputProps },
   meta,
   label,
+  secureTextEntry,
+  style,
   getHelperText,
   ContainerProps,
   HelperTextProps,
   ...TextInputProps
-}) => {
+}: TextInputProps, ref: React.Ref<any>) => {
+  const textInputRef: any = useRef(ref);
   const error = useHasError(meta);
   const helperText = getHelperText(error && meta.error);
+
+  useEffect(() => {
+    if (secureTextEntry && style && style.hasOwnProperty("fontFamily")) {
+      textInputRef.current.setNativeProps({
+        style: {
+          fontFamily: style.fontFamily
+        }
+      })
+    }
+  }, [secureTextEntry])
 
   return (
     <Container
@@ -71,6 +92,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       <PaperTextInput
         {...InputProps}
         {...TextInputProps}
+        ref={textInputRef}
         value={value}
         error={error}
         onChangeText={onChange}
@@ -79,9 +101,11 @@ export const TextInput: React.FC<TextInputProps> = ({
       />
     </Container>
   );
-};
+}
+);
 
 TextInput.displayName = 'TextInput';
+
 TextInput.defaultProps = {
   getHelperText: str => str,
   style: {},
