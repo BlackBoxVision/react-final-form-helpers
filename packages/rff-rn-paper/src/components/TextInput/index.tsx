@@ -47,7 +47,7 @@ export type TextInputProps = BaseInputProps &
     /**
      * Property that represents if show or hide the password text
      */
-    secureTextEntry?: string;
+    secureTextEntry?: boolean;
     /**
     * Property that represents the input styles
     */
@@ -92,6 +92,9 @@ export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
       <PaperTextInput
         {...InputProps}
         {...TextInputProps}
+        label={label}
+        style={style}
+        secureTextEntry={secureTextEntry}
         ref={textInputRef}
         value={value}
         error={error}
