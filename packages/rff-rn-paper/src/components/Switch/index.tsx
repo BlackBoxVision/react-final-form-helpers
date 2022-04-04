@@ -19,7 +19,8 @@ export type SwitchProps = BaseInputProps &
     labelPosition?: 'left' | 'right';
   };
 
-export const Switch: React.FC<SwitchProps> = ({
+export let Switch: React.FC<SwitchProps> = ({
+  showErrorOnMount,
   input: { onChange, value },
   meta,
   label,
@@ -31,8 +32,8 @@ export const Switch: React.FC<SwitchProps> = ({
   HelperTextProps,
   ...SwitchProps
 }) => {
-  const error = useHasError(meta);
-  const helperText = getHelperText(error && meta.error);
+  let error = useHasError(meta, showErrorOnMount);
+  let helperText = getHelperText(error && meta.error);
 
   return (
     <Container
@@ -63,6 +64,7 @@ export const Switch: React.FC<SwitchProps> = ({
 
 Switch.displayName = 'Switch';
 Switch.defaultProps = {
+  showErrorOnMount: false,
   getHelperText: str => str,
   style: {},
   labelPosition: 'right',

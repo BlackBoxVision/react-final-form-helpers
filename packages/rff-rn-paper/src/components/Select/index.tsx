@@ -22,7 +22,8 @@ export type SelectProps = BaseInputProps & {
   options?: Array<{ value?: any; label: string }>;
 };
 
-export const Select: React.FC<SelectProps> = ({
+export let Select: React.FC<SelectProps> = ({
+  showErrorOnMount,
   input: { onChange, value },
   meta,
   label,
@@ -33,8 +34,8 @@ export const Select: React.FC<SelectProps> = ({
   HelperTextProps,
   ...SelectProps
 }) => {
-  const error = useHasError(meta);
-  const helperText = getHelperText(error && meta.error);
+  let error = useHasError(meta, showErrorOnMount);
+  let helperText = getHelperText(error && meta.error);
 
   return (
     <Container
@@ -53,7 +54,7 @@ export const Select: React.FC<SelectProps> = ({
         onValueChange={value => onChange(value)}
       >
         {options &&
-          options.map(({ label, value }) => (
+          options?.map?.(({ label, value }) => (
             <Picker.Item label={label} value={value} />
           ))}
       </Picker>
@@ -64,6 +65,7 @@ export const Select: React.FC<SelectProps> = ({
 Select.displayName = 'Select';
 Select.defaultProps = {
   getHelperText: str => str,
+  showErrorOnMount: false,
   style: {},
   options: [],
   LabelProps: {},

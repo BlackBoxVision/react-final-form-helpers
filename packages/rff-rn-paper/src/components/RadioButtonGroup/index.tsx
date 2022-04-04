@@ -30,7 +30,8 @@ export type RadioButtonGroupProps = BaseInputProps &
     options?: Array<{ value?: any; label: string }>;
   };
 
-export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
+export let RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
+  showErrorOnMount,
   input: { onChange, value },
   meta,
   label,
@@ -45,8 +46,8 @@ export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   HelperTextProps,
   ...RadioButtonGroupProps
 }) => {
-  const error = useHasError(meta);
-  const helperText = getHelperText(error && meta.error);
+  let error = useHasError(meta, showErrorOnMount);
+  let helperText = getHelperText(error && meta.error);
 
   return (
     <Container
@@ -83,6 +84,7 @@ export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
 
 RadioButtonGroup.displayName = 'RadioButtonGroup';
 RadioButtonGroup.defaultProps = {
+  showErrorOnMount: false,
   getHelperText: str => str,
   labelPosition: 'right',
   style: {},

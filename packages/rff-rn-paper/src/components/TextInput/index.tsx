@@ -36,6 +36,10 @@ export type BaseInputProps = FieldRenderProps<any> & {
    * Property that represents a function to get a message to show in the HelperText
    */
   getHelperText?: (errorKeyOrText?: string) => string;
+  /**
+   * Property to show error when incoming initialValues
+   */
+  showErrorOnMount?: boolean;
 };
 
 export type TextInputProps = BaseInputProps &
@@ -55,11 +59,12 @@ export type TextInputProps = BaseInputProps &
     /**
      * Property to set autoFocus in Input
      */
-  autoFocus?: boolean;
+    autoFocus?: boolean;
   };
 
-export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
-  autoFocus = false, 
+export let TextInput: React.FC<TextInputProps> = React.forwardRef(({
+  showErrorOnMount,
+  autoFocus, 
   input: { onChange, onFocus, onBlur, value, ...InputProps },
   meta,
   label,
@@ -70,9 +75,9 @@ export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
   HelperTextProps,
   ...TextInputProps
 }: TextInputProps, ref: React.Ref<any>) => {
-  const textInputRef: any = useRef(ref);
-  const error = useHasError(meta);
-  const helperText = getHelperText(error && meta.error);
+  let textInputRef: any = useRef(ref);
+  let error = useHasError(meta, showErrorOnMount);
+  let helperText = getHelperText(error && meta.error);
 
   useEffect(() => {
     if (secureTextEntry && style && style.hasOwnProperty("fontFamily")) {
@@ -121,6 +126,8 @@ export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
 TextInput.displayName = 'TextInput';
 
 TextInput.defaultProps = {
+  showErrorOnMount: false,
+  autoFocus: false,
   getHelperText: str => str,
   style: {},
   ContainerProps: {},

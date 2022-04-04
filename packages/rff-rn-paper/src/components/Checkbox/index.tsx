@@ -22,7 +22,8 @@ export type CheckboxProps = BaseInputProps &
     labelPosition?: 'left' | 'right';
   };
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export let Checkbox: React.FC<CheckboxProps> = ({
+  showErrorOnMount,
   input: { onChange, value },
   meta,
   label,
@@ -34,8 +35,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   HelperTextProps,
   ...CheckboxProps
 }) => {
-  const error = useHasError(meta);
-  const helperText = getHelperText(error && meta.error);
+  let error = useHasError(meta, showErrorOnMount);
+  let helperText = getHelperText(error && meta.error);
 
   return (
     <Container
@@ -66,6 +67,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.defaultProps = {
+  showErrorOnMount: false,
   getHelperText: str => str,
   labelPosition: 'right',
   InnerContainerProps: {},

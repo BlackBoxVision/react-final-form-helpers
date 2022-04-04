@@ -22,7 +22,8 @@ export type RadioButtonProps = BaseInputProps &
     labelPosition?: 'left' | 'right';
   };
 
-export const RadioButton: React.FC<RadioButtonProps> = ({
+export let RadioButton: React.FC<RadioButtonProps> = ({
+  showErrorOnMount,
   input: { onChange, value: inputValue },
   meta,
   label,
@@ -35,8 +36,8 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
   HelperTextProps,
   ...RadioButtonProps
 }) => {
-  const error = useHasError(meta);
-  const helperText = getHelperText(error && meta.error);
+  let error = useHasError(meta, showErrorOnMount);
+  let helperText = getHelperText(error && meta.error);
 
   return (
     <Container
@@ -68,6 +69,7 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
 
 RadioButton.displayName = 'RadioButton';
 RadioButton.defaultProps = {
+  showErrorOnMount: false,
   getHelperText: str => str,
   labelPosition: 'right',
   InnerContainerProps: {},
