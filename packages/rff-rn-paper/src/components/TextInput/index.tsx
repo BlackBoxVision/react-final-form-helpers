@@ -52,9 +52,14 @@ export type TextInputProps = BaseInputProps &
     * Property that represents the input styles
     */
     style?: any;
+    /**
+     * Property to set autoFocus in Input
+     */
+  autoFocus?: boolean;
   };
 
 export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
+  autoFocus = false, 
   input: { onChange, onFocus, onBlur, value, ...InputProps },
   meta,
   label,
@@ -71,13 +76,19 @@ export const TextInput: React.FC<TextInputProps> = React.forwardRef(({
 
   useEffect(() => {
     if (secureTextEntry && style && style.hasOwnProperty("fontFamily")) {
-      textInputRef.current.setNativeProps({
+      textInputRef?.current?.setNativeProps?.({
         style: {
           fontFamily: style.fontFamily
         }
       })
     }
   }, [secureTextEntry])
+
+  useEffect(() => {
+    if (autoFocus) {
+      textInputRef?.current?.focus?.();
+    }
+  }, [autoFocus])
 
   return (
     <Container
