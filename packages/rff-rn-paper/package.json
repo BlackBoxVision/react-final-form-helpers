@@ -58,7 +58,7 @@
     "final-form": "^4.20.1",
     "react": "^16.13.1",
     "react-final-form": "^6.5.1",
-    "react-native": "^0.61.5",
+    "react-native": "^0.70.6",
     "react-native-paper": "^3.11.0",
     "rimraf": "^3.0.2",
     "typescript": "^3.9.7"
