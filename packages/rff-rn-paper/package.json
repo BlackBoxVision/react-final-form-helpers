@@ -66,6 +66,6 @@
     "react": "*",
     "react-final-form": "*",
     "react-native": "*",
-    "react-native-paper": "^3.0.0"
+    "react-native-paper": "*"
   }
 }
