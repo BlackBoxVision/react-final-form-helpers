@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text as PaperText } from 'react-native-paper';
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 
 import { useHasError } from '../../hooks/useHasError';
 
